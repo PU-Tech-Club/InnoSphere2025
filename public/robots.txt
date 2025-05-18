@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+
+# Crawl-delay directive
+Crawl-delay: 10
+
+# Sitemap location
+Sitemap: https://innosphere.pu.edu.np/sitemap.xml
+
+# Allow crawling of important assets
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.ico$ 
