@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, createContext, useContext, ReactNod
 import { FaFacebook, FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa6";
 import { FiSun, FiMoon } from "react-icons/fi";
 import "./index.css";
+import puLogo from './assets/pu_logo.svg';
 
 // Lazy load components
 const Countdown = lazy(() => import('./components/Countdown'));
@@ -339,6 +340,14 @@ function AppContent() {
             <div className="absolute w-8 h-8 border-2 border-white/20 rounded-lg animate-float-slow rotate-45" style={{ top: '25%', left: '40%' }}></div>
             <div className="absolute w-6 h-6 border-2 border-white/20 rounded-full animate-float-medium" style={{ top: '45%', right: '40%' }}></div>
             <div className="absolute w-10 h-10 border-2 border-white/20 rounded-lg animate-float-fast -rotate-12" style={{ top: '65%', left: '30%' }}></div>
+
+            {/* Floating PU Logos */}
+            <img 
+              src={puLogo} 
+              alt="PU Logo" 
+              className="absolute w-12 h-12 opacity-50 animate-float-slow" 
+              style={{ top: '15%', right: '15%' }}
+            />
           </div>
 
           <div className="z-10 max-w-3xl mx-auto w-full flex flex-col items-center justify-center space-y-8">
