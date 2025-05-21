@@ -390,10 +390,10 @@ function AppContent() {
           </div>
         </section>
         {/* Events Placeholder */}
-        <section ref={eventsRef} id="events" className={`py-16 bg-f3f7f0 dark:bg-gray-900 ${eventsAnim} ${eventsScrollAnim}`} role="region" aria-label="Featured Events">
+        <section ref={eventsRef} id="events" className={`py-16 bg-f3f7f0 dark:bg-gray-900 ${eventsAnim} ${eventsScrollAnim}`} role="region" aria-label="Event Registeration">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold mb-8 text-teal-dark">
-              Featured Events
+              Event Registeration
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div
@@ -401,7 +401,9 @@ function AppContent() {
                 className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 ${event1Anim}`}
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
-                  Event Placeholder
+                  <a href="https://forms.gle/KD1yyW22Uds3K1xo7">Event Placeholder</a>
+                </span>
+                <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
                 </span>
               </div>
               <div
@@ -443,7 +445,9 @@ function AppContent() {
                             className={`bg-white dark:bg-gray-700 border-l-4 border-teal dark:border-teal/80 rounded-xl w-[85%] sm:w-80 h-28 flex items-center justify-center shadow-lg ${anim}`}
                           >
                             <span className="text-gray-600 dark:text-gray-300 font-semibold text-center px-2">
-                              Event Placeholder
+                              {i === 0 ? "Software Exhibition" :
+                               i === 2 ? "Cybersecurity Poster Competition" :
+                               i === 4 ? "Workshops" : ""}
                             </span>
                           </div>
                         </div>
@@ -468,7 +472,9 @@ function AppContent() {
                             className={`bg-white dark:bg-gray-700 border-r-4 border-teal dark:border-teal/80 rounded-xl w-[85%] sm:w-80 h-28 flex items-center justify-center shadow-lg ${anim}`}
                           >
                             <span className="text-gray-600 dark:text-gray-300 font-semibold text-center px-2">
-                              Event Placeholder
+                              {i === 1 ? "Hardware Exhibition" :
+                               i === 3 ? "IT Quiz" :
+                               i === 5 ? "Dance/ Singing" : ""}
                             </span>
                           </div>
                         </div>
