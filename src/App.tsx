@@ -1,12 +1,22 @@
-import React, { useState, useEffect, useRef, createContext, useContext, ReactNode, lazy, Suspense } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  createContext,
+  useContext,
+  ReactNode,
+  lazy,
+  Suspense,
+} from "react";
 import { FaFacebook, FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa6";
 import { FiSun, FiMoon } from "react-icons/fi";
 import "./index.css";
-import puLogo from './assets/pu_logo.svg';
-import putcLogo from './assets/putc_logo.png';
+import puLogo from "./assets/pu_logo.svg";
+import putcLogo from "./assets/putc_logo.png";
+import InnosphereLogo from "./assets/Innosphere_logo.png";
 
 // Lazy load components
-const Countdown = lazy(() => import('./components/Countdown'));
+const Countdown = lazy(() => import("./components/Countdown"));
 
 // Theme context
 interface ThemeContextType {
@@ -26,17 +36,17 @@ interface ThemeProviderProps {
 
 function ThemeProvider({ children }: ThemeProviderProps) {
   const [isDarkMode, setIsDarkMode] = useState(() => {
-    const savedTheme = localStorage.getItem('theme');
-    return savedTheme === 'dark';
+    const savedTheme = localStorage.getItem("theme");
+    return savedTheme === "dark";
   });
 
   useEffect(() => {
     if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
     } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     }
   }, [isDarkMode]);
 
@@ -85,7 +95,7 @@ function useScrollAnimation() {
         root: null,
         rootMargin: "0px",
         threshold: 0.1,
-      }
+      },
     );
 
     if (ref.current) {
@@ -99,7 +109,12 @@ function useScrollAnimation() {
     };
   }, []);
 
-  return [ref, isVisible ? "opacity-100 translate-y-0 transition-all duration-500 ease-out" : "opacity-0 translate-y-10"];
+  return [
+    ref,
+    isVisible
+      ? "opacity-100 translate-y-0 transition-all duration-500 ease-out"
+      : "opacity-0 translate-y-10",
+  ];
 }
 
 // Staggered animation hook
@@ -121,7 +136,7 @@ function useStaggeredAnimation(delay = 0) {
         root: null,
         rootMargin: "0px",
         threshold: 0.1,
-      }
+      },
     );
 
     if (ref.current) {
@@ -135,7 +150,12 @@ function useStaggeredAnimation(delay = 0) {
     };
   }, [delay]);
 
-  return [ref, isVisible ? "opacity-100 translate-y-0 scale-100 transition-all duration-300 ease-out" : "opacity-0 translate-y-10 scale-95 transition-all duration-300 ease-out"];
+  return [
+    ref,
+    isVisible
+      ? "opacity-100 translate-y-0 scale-100 transition-all duration-300 ease-out"
+      : "opacity-0 translate-y-10 scale-95 transition-all duration-300 ease-out",
+  ];
 }
 
 // Add smooth scroll behavior to the whole page
@@ -144,7 +164,8 @@ if (typeof window !== "undefined") {
 }
 
 // Add this CSS class to your index.css
-const heroGradientDark = "bg-gradient-to-r from-teal/90 via-lightgreen/90 to-deepgreen/90";
+const heroGradientDark =
+  "bg-gradient-to-r from-teal/90 via-lightgreen/90 to-deepgreen/90";
 
 function App() {
   return (
@@ -182,20 +203,32 @@ function AppContent() {
   const [event3Ref, event3Anim] = useStaggeredAnimation(300);
 
   // Staggered animation refs for timeline events
-  const timelineEventRefs = Array(7).fill(null).map((_, i) => useStaggeredAnimation(i * 150));
+  const timelineEventRefs = Array(7)
+    .fill(null)
+    .map((_, i) => useStaggeredAnimation(i * 150));
 
   // Staggered animation refs for sponsors
-  const sponsorRefs = Array(8).fill(null).map((_, i) => useStaggeredAnimation(i * 100));
+  const sponsorRefs = Array(8)
+    .fill(null)
+    .map((_, i) => useStaggeredAnimation(i * 100));
 
   return (
     <div className="min-h-screen bg-offwhite dark:bg-gray-900 transition-colors duration-300">
       {/* Navbar */}
-      <nav className="bg-teal-dark shadow-lg w-full fixed z-50" role="navigation" aria-label="Main navigation">
+      <nav
+        className="bg-teal-dark shadow-lg w-full fixed z-50"
+        role="navigation"
+        aria-label="Main navigation"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16 items-center">
           {/* Logo Placeholder */}
           <div className="flex items-center space-x-2">
-            <div className="w-11 h-11 rounded-full bg-deepgreen flex items-center justify-center text-white font-bold text-lg" role="img" aria-label="Innosphere Logo">
-              LOGO
+            <div
+              className="w-11 h-11 rounded-full bg-deepgreen flex items-center justify-center text-white font-bold text-lg"
+              role="img"
+              aria-label="Innosphere Logo"
+            >
+              <img src={InnosphereLogo} alt="Innosphere Logo" />
             </div>
             <span className="text-white font-bold text-lg">
               <span className="relative inline-block animate-pop text-offwhite">
@@ -208,8 +241,17 @@ function AppContent() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8" role="menubar" aria-label="Main menu">
-            <a href="#" className="nav-link-active" role="menuitem" aria-current="page">
+          <div
+            className="hidden md:flex items-center space-x-8"
+            role="menubar"
+            aria-label="Main menu"
+          >
+            <a
+              href="#"
+              className="nav-link-active"
+              role="menuitem"
+              aria-current="page"
+            >
               Home
             </a>
             <a href="#events" className="nav-link" role="menuitem">
@@ -229,7 +271,11 @@ function AppContent() {
                 aria-label="Toggle theme"
                 aria-pressed={isDarkMode}
               >
-                {isDarkMode ? <FiSun className="w-5 h-5" /> : <FiMoon className="w-5 h-5" />}
+                {isDarkMode ? (
+                  <FiSun className="w-5 h-5" />
+                ) : (
+                  <FiMoon className="w-5 h-5" />
+                )}
               </button>
             </div>
           </div>
@@ -244,7 +290,11 @@ function AppContent() {
                 aria-label="Toggle theme"
                 aria-pressed={isDarkMode}
               >
-                {isDarkMode ? <FiSun className="w-5 h-5" /> : <FiMoon className="w-5 h-5" />}
+                {isDarkMode ? (
+                  <FiSun className="w-5 h-5" />
+                ) : (
+                  <FiMoon className="w-5 h-5" />
+                )}
               </button>
             </div>
             <button
@@ -255,11 +305,27 @@ function AppContent() {
               aria-controls="mobile-menu"
               aria-haspopup="true"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
                 {isMobileMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
                 )}
               </svg>
             </button>
@@ -277,16 +343,37 @@ function AppContent() {
           aria-hidden={!isMobileMenuOpen}
         >
           <div className="px-4 py-2 space-y-2">
-            <a href="#" className="nav-link-active block py-2" role="menuitem" aria-current="page" onClick={() => setIsMobileMenuOpen(false)}>
+            <a
+              href="#"
+              className="nav-link-active block py-2"
+              role="menuitem"
+              aria-current="page"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               Home
             </a>
-            <a href="#events" className="nav-link block py-2" role="menuitem" onClick={() => setIsMobileMenuOpen(false)}>
+            <a
+              href="#events"
+              className="nav-link block py-2"
+              role="menuitem"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               Events
             </a>
-            <a href="#timeline" className="nav-link block py-2" role="menuitem" onClick={() => setIsMobileMenuOpen(false)}>
+            <a
+              href="#timeline"
+              className="nav-link block py-2"
+              role="menuitem"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               Timeline
             </a>
-            <a href="#sponsors" className="nav-link block py-2" role="menuitem" onClick={() => setIsMobileMenuOpen(false)}>
+            <a
+              href="#sponsors"
+              className="nav-link block py-2"
+              role="menuitem"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               Sponsors
             </a>
           </div>
@@ -294,35 +381,65 @@ function AppContent() {
       </nav>
       {/* Hero Section */}
       <div className="pt-16">
-        <section className={`relative h-[70vh] md:h-[80vh] bg-gradient-to-r from-teal-dark via-teal to-deepgreen flex flex-col items-center justify-center overflow-hidden ${heroAnim}`} role="banner">
+        <section
+          className={`relative h-[70vh] md:h-[80vh] bg-gradient-to-r from-teal-dark via-teal to-deepgreen flex flex-col items-center justify-center overflow-hidden ${heroAnim}`}
+          role="banner"
+        >
           {/* Floating Elements */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             {/* Floating Dots */}
-            <div className="absolute w-2 h-2 bg-white/30 rounded-full animate-float-slow" style={{ top: '20%', left: '15%' }}></div>
-            <div className="absolute w-3 h-3 bg-white/20 rounded-full animate-float-medium" style={{ top: '40%', left: '25%' }}></div>
-            <div className="absolute w-2 h-2 bg-white/30 rounded-full animate-float-fast" style={{ top: '60%', left: '35%' }}></div>
-            <div className="absolute w-3 h-3 bg-white/20 rounded-full animate-float-slow" style={{ top: '30%', right: '20%' }}></div>
-            <div className="absolute w-2 h-2 bg-white/30 rounded-full animate-float-medium" style={{ top: '50%', right: '30%' }}></div>
-            <div className="absolute w-3 h-3 bg-white/20 rounded-full animate-float-fast" style={{ top: '70%', right: '25%' }}></div>
+            <div
+              className="absolute w-2 h-2 bg-white/30 rounded-full animate-float-slow"
+              style={{ top: "20%", left: "15%" }}
+            ></div>
+            <div
+              className="absolute w-3 h-3 bg-white/20 rounded-full animate-float-medium"
+              style={{ top: "40%", left: "25%" }}
+            ></div>
+            <div
+              className="absolute w-2 h-2 bg-white/30 rounded-full animate-float-fast"
+              style={{ top: "60%", left: "35%" }}
+            ></div>
+            <div
+              className="absolute w-3 h-3 bg-white/20 rounded-full animate-float-slow"
+              style={{ top: "30%", right: "20%" }}
+            ></div>
+            <div
+              className="absolute w-2 h-2 bg-white/30 rounded-full animate-float-medium"
+              style={{ top: "50%", right: "30%" }}
+            ></div>
+            <div
+              className="absolute w-3 h-3 bg-white/20 rounded-full animate-float-fast"
+              style={{ top: "70%", right: "25%" }}
+            ></div>
 
             {/* Floating Shapes */}
-            <div className="absolute w-8 h-8 border-2 border-white/20 rounded-lg animate-float-slow rotate-45" style={{ top: '25%', left: '40%' }}></div>
-            <div className="absolute w-6 h-6 border-2 border-white/20 rounded-full animate-float-medium" style={{ top: '45%', right: '40%' }}></div>
-            <div className="absolute w-10 h-10 border-2 border-white/20 rounded-lg animate-float-fast -rotate-12" style={{ top: '65%', left: '30%' }}></div>
+            <div
+              className="absolute w-8 h-8 border-2 border-white/20 rounded-lg animate-float-slow rotate-45"
+              style={{ top: "25%", left: "40%" }}
+            ></div>
+            <div
+              className="absolute w-6 h-6 border-2 border-white/20 rounded-full animate-float-medium"
+              style={{ top: "45%", right: "40%" }}
+            ></div>
+            <div
+              className="absolute w-10 h-10 border-2 border-white/20 rounded-lg animate-float-fast -rotate-12"
+              style={{ top: "65%", left: "30%" }}
+            ></div>
 
             {/* Floating PU Logos */}
-            <img 
-              src={puLogo} 
-              alt="PU Logo" 
-              className="absolute w-12 h-12 opacity-20 animate-float-slow" 
-              style={{ top: '15%', right: '15%' }}
+            <img
+              src={puLogo}
+              alt="PU Logo"
+              className="absolute w-12 h-12 opacity-80 animate-float-slow"
+              style={{ top: "15%", right: "15%" }}
             />
             {/* Floating PUTC Logos */}
-            <img 
-              src={putcLogo} 
-              alt="PUTC Logo" 
-              className="absolute w-14 h-14 opacity-20 animate-float-medium" 
-              style={{ top: '25%', left: '30%' }}
+            <img
+              src={putcLogo}
+              alt="PUTC Logo"
+              className="absolute w-14 h-14 opacity-80 animate-float-medium"
+              style={{ top: "25%", left: "30%" }}
             />
           </div>
 
@@ -338,21 +455,40 @@ function AppContent() {
                 Empowered by Innovation
               </p>
               <div className="flex flex-wrap justify-center gap-6">
-                <a className="btn-primary focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-teal" href="#events">
+                <a
+                  className="btn-primary focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-teal"
+                  href="#events"
+                >
                   Explore Events
                 </a>
-                <a className="btn-secondary focus:outline-none focus:ring-2 focus:ring-teal focus:ring-offset-2 focus:ring-offset-white" href="#timeline">
+                <a
+                  className="btn-secondary focus:outline-none focus:ring-2 focus:ring-teal focus:ring-offset-2 focus:ring-offset-white"
+                  href="#timeline"
+                >
                   View Timeline
                 </a>
               </div>
-              <Suspense fallback={<div className="h-24" role="status" aria-label="Loading countdown" />}>
+              <Suspense
+                fallback={
+                  <div
+                    className="h-24"
+                    role="status"
+                    aria-label="Loading countdown"
+                  />
+                }
+              >
                 <Countdown />
               </Suspense>
             </div>
           </div>
         </section>
         {/* Info cards */}
-        <section ref={infoRef} className={`py-12 bg-offwhite dark:bg-gray-800 ${infoAnim} ${infoScrollAnim}`} role="region" aria-label="Event Information">
+        <section
+          ref={infoRef}
+          className={`py-12 bg-offwhite dark:bg-gray-800 ${infoAnim} ${infoScrollAnim}`}
+          role="region"
+          aria-label="Event Information"
+        >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="card">
               <div className="p-6">
@@ -375,7 +511,13 @@ function AppContent() {
           </div>
         </section>
         {/* Events Placeholder */}
-        <section ref={eventsRef} id="events" className={`py-16 bg-f3f7f0 dark:bg-gray-900 ${eventsAnim} ${eventsScrollAnim}`} role="region" aria-label="Event Registeration">
+        <section
+          ref={eventsRef}
+          id="events"
+          className={`py-16 bg-f3f7f0 dark:bg-gray-900 ${eventsAnim} ${eventsScrollAnim}`}
+          role="region"
+          aria-label="Event Registeration"
+        >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold mb-8 text-teal-dark">
               Event Registeration
@@ -386,10 +528,11 @@ function AppContent() {
                 className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 ${event1Anim}`}
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
-                  <a href="https://forms.gle/KD1yyW22Uds3K1xo7">Event Placeholder</a>
+                  <a href="https://forms.gle/KD1yyW22Uds3K1xo7">
+                    Event Placeholder
+                  </a>
                 </span>
-                <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
-                </span>
+                <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold"></span>
               </div>
               <div
                 ref={event2Ref}
@@ -411,13 +554,22 @@ function AppContent() {
           </div>
         </section>
         {/* Timeline - Schedule at a Glance */}
-        <section ref={timelineRef} id="timeline" className={`py-16 bg-white dark:bg-gray-800 ${timelineAnim} ${timelineScrollAnim}`} role="region" aria-label="Event Timeline">
+        <section
+          ref={timelineRef}
+          id="timeline"
+          className={`py-16 bg-white dark:bg-gray-800 ${timelineAnim} ${timelineScrollAnim}`}
+          role="region"
+          aria-label="Event Timeline"
+        >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-bold mb-12 text-center text-deepgreen dark:text-teal-light">
               Timeline
             </h2>
             <div className="relative flex flex-col items-center">
-              <div className="absolute left-1/2 -translate-x-1/2 top-0 h-full w-2 bg-gradient-to-b from-teal via-lightgreen to-teal dark:from-teal/80 dark:via-lightgreen/80 dark:to-teal/80 rounded-full z-0" style={{ minHeight: "600px" }} />
+              <div
+                className="absolute left-1/2 -translate-x-1/2 top-0 h-full w-2 bg-gradient-to-b from-teal via-lightgreen to-teal dark:from-teal/80 dark:via-lightgreen/80 dark:to-teal/80 rounded-full z-0"
+                style={{ minHeight: "600px" }}
+              />
               <div className="w-full">
                 {[0, 1, 2, 3, 4, 5, 6].map((step, i) => {
                   const [ref, anim] = timelineEventRefs[i];
@@ -430,10 +582,15 @@ function AppContent() {
                             className={`bg-white dark:bg-gray-700 border-l-4 border-teal dark:border-teal/80 rounded-xl w-[85%] sm:w-80 h-28 flex items-center justify-center shadow-lg ${anim}`}
                           >
                             <span className="text-gray-600 dark:text-gray-300 font-semibold text-center px-2">
-                              {i === 0 ? "HARDWARE PROJECT EXHIBITION" :
-                               i === 2 ? "IT QUIZ" :
-                               i === 4 ? "BUSINESS IDEA PITCHING" :
-                               i === 6 ? "E-FOOTBALL TOURNAMENT" : ""}
+                              {i === 0
+                                ? "HARDWARE PROJECT EXHIBITION"
+                                : i === 2
+                                  ? "IT QUIZ"
+                                  : i === 4
+                                    ? "BUSINESS IDEA PITCHING"
+                                    : i === 6
+                                      ? "E-FOOTBALL TOURNAMENT"
+                                      : ""}
                             </span>
                           </div>
                         </div>
@@ -458,9 +615,13 @@ function AppContent() {
                             className={`bg-white dark:bg-gray-700 border-r-4 border-teal dark:border-teal/80 rounded-xl w-[85%] sm:w-80 h-28 flex items-center justify-center shadow-lg ${anim}`}
                           >
                             <span className="text-gray-600 dark:text-gray-300 font-semibold text-center px-2">
-                              {i === 1 ? "SOFTWARE PROJECT EXHIBITION" :
-                               i === 3 ? "INNOCANVAS" :
-                               i === 5 ? "ECHOSPHERE UNPLUGGED" : ""}
+                              {i === 1
+                                ? "SOFTWARE PROJECT EXHIBITION"
+                                : i === 3
+                                  ? "INNOCANVAS"
+                                  : i === 5
+                                    ? "ECHOSPHERE UNPLUGGED"
+                                    : ""}
                             </span>
                           </div>
                         </div>
@@ -475,7 +636,13 @@ function AppContent() {
           </div>
         </section>
         {/* Sponsors Placeholder */}
-        <section ref={sponsorsRef} id="sponsors" className={`py-16 bg-f3f7f0 dark:bg-gray-900 ${sponsorsAnim} ${sponsorsScrollAnim}`} role="region" aria-label="Event Sponsors">
+        <section
+          ref={sponsorsRef}
+          id="sponsors"
+          className={`py-16 bg-f3f7f0 dark:bg-gray-900 ${sponsorsAnim} ${sponsorsScrollAnim}`}
+          role="region"
+          aria-label="Event Sponsors"
+        >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold mb-8 text-teal-dark text-center">
               Sponsors
@@ -500,13 +667,20 @@ function AppContent() {
         </section>
       </div>
       {/* Footer */}
-      <footer ref={footerRef} className={`bg-deepgreen text-white py-12 mt-12 ${footerAnim} ${footerScrollAnim}`} role="contentinfo">
+      <footer
+        ref={footerRef}
+        className={`bg-deepgreen text-white py-12 mt-12 ${footerAnim} ${footerScrollAnim}`}
+        role="contentinfo"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <h2 className="text-xl font-bold mb-4 text-white">Contact Us</h2>
             <div className="space-y-2">
               <p className="flex items-center">
-                <a href="mailto:putechclub@gmail.com" className="text-white hover:text-teal-light transition-colors">
+                <a
+                  href="mailto:putechclub@gmail.com"
+                  className="text-white hover:text-teal-light transition-colors"
+                >
                   putechclub@gmail.com
                 </a>
               </p>
@@ -526,12 +700,18 @@ function AppContent() {
             <h2 className="text-xl font-bold mb-4 text-white">Quick Links</h2>
             <ul className="space-y-2">
               <li>
-                <a href="#events" className="text-white hover:text-teal-light transition-colors">
+                <a
+                  href="#events"
+                  className="text-white hover:text-teal-light transition-colors"
+                >
                   Events
                 </a>
               </li>
               <li>
-                <a href="#timeline" className="text-white hover:text-teal-light transition-colors">
+                <a
+                  href="#timeline"
+                  className="text-white hover:text-teal-light transition-colors"
+                >
                   Timeline
                 </a>
               </li>
