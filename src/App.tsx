@@ -3,6 +3,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa6";
 import { FiSun, FiMoon } from "react-icons/fi";
 import "./index.css";
 import puLogo from './assets/pu_logo.svg';
+import putcLogo from './assets/putc_logo.png';
 
 // Lazy load components
 const Countdown = lazy(() => import('./components/Countdown'));
@@ -313,8 +314,15 @@ function AppContent() {
             <img 
               src={puLogo} 
               alt="PU Logo" 
-              className="absolute w-12 h-12 opacity-50 animate-float-slow" 
+              className="absolute w-12 h-12 opacity-20 animate-float-slow" 
               style={{ top: '15%', right: '15%' }}
+            />
+            {/* Floating PUTC Logos */}
+            <img 
+              src={putcLogo} 
+              alt="PUTC Logo" 
+              className="absolute w-14 h-14 opacity-20 animate-float-medium" 
+              style={{ top: '25%', left: '30%' }}
             />
           </div>
 
