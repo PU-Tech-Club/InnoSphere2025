@@ -146,38 +146,6 @@ if (typeof window !== "undefined") {
 const heroGradientDark = "bg-gradient-to-r from-teal/90 via-lightgreen/90 to-deepgreen/90";
 
 function App() {
-  // Animation states
-  const heroAnim = useFadeIn(0);
-  const infoAnim = useFadeIn(300);
-  const eventsAnim = useFadeIn(500);
-  const timelineAnim = useFadeIn(700);
-  const sponsorsAnim = useFadeIn(1100);
-  const footerAnim = useFadeIn(1400);
-
-  // Mobile menu state
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  // Theme
-  const { isDarkMode, toggleTheme } = useTheme();
-
-  // Scroll animation refs
-  const [infoRef, infoScrollAnim] = useScrollAnimation();
-  const [eventsRef, eventsScrollAnim] = useScrollAnimation();
-  const [timelineRef, timelineScrollAnim] = useScrollAnimation();
-  const [sponsorsRef, sponsorsScrollAnim] = useScrollAnimation();
-  const [footerRef, footerScrollAnim] = useScrollAnimation();
-
-  // Staggered animation refs for events
-  const [event1Ref, event1Anim] = useStaggeredAnimation(100);
-  const [event2Ref, event2Anim] = useStaggeredAnimation(200);
-  const [event3Ref, event3Anim] = useStaggeredAnimation(300);
-
-  // Staggered animation refs for timeline events
-  const timelineEventRefs = Array(6).fill(null).map((_, i) => useStaggeredAnimation(i * 150));
-
-  // Staggered animation refs for sponsors
-  const sponsorRefs = Array(8).fill(null).map((_, i) => useStaggeredAnimation(i * 100));
-
   return (
     <ThemeProvider>
       <AppContent />
@@ -213,7 +181,7 @@ function AppContent() {
   const [event3Ref, event3Anim] = useStaggeredAnimation(300);
 
   // Staggered animation refs for timeline events
-  const timelineEventRefs = Array(6).fill(null).map((_, i) => useStaggeredAnimation(i * 150));
+  const timelineEventRefs = Array(7).fill(null).map((_, i) => useStaggeredAnimation(i * 150));
 
   // Staggered animation refs for sponsors
   const sponsorRefs = Array(8).fill(null).map((_, i) => useStaggeredAnimation(i * 100));
@@ -443,7 +411,7 @@ function AppContent() {
             <div className="relative flex flex-col items-center">
               <div className="absolute left-1/2 -translate-x-1/2 top-0 h-full w-2 bg-gradient-to-b from-teal via-lightgreen to-teal dark:from-teal/80 dark:via-lightgreen/80 dark:to-teal/80 rounded-full z-0" style={{ minHeight: "600px" }} />
               <div className="w-full">
-                {[0, 1, 2, 3, 4, 5].map((step, i) => {
+                {[0, 1, 2, 3, 4, 5, 6].map((step, i) => {
                   const [ref, anim] = timelineEventRefs[i];
                   return (
                     <div className="flex w-full mb-12 relative" key={i}>
@@ -454,9 +422,10 @@ function AppContent() {
                             className={`bg-white dark:bg-gray-700 border-l-4 border-teal dark:border-teal/80 rounded-xl w-[85%] sm:w-80 h-28 flex items-center justify-center shadow-lg ${anim}`}
                           >
                             <span className="text-gray-600 dark:text-gray-300 font-semibold text-center px-2">
-                              {i === 0 ? "Software Exhibition" :
-                               i === 2 ? "Cybersecurity Poster Competition" :
-                               i === 4 ? "Workshops" : ""}
+                              {i === 0 ? "HARDWARE PROJECT EXHIBITION" :
+                               i === 2 ? "IT QUIZ" :
+                               i === 4 ? "BUSINESS IDEA PITCHING" :
+                               i === 6 ? "E-FOOTBALL TOURNAMENT" : ""}
                             </span>
                           </div>
                         </div>
@@ -481,9 +450,9 @@ function AppContent() {
                             className={`bg-white dark:bg-gray-700 border-r-4 border-teal dark:border-teal/80 rounded-xl w-[85%] sm:w-80 h-28 flex items-center justify-center shadow-lg ${anim}`}
                           >
                             <span className="text-gray-600 dark:text-gray-300 font-semibold text-center px-2">
-                              {i === 1 ? "Hardware Exhibition" :
-                               i === 3 ? "IT Quiz" :
-                               i === 5 ? "Dance/ Singing" : ""}
+                              {i === 1 ? "SOFTWARE PROJECT EXHIBITION" :
+                               i === 3 ? "INNOCANVAS" :
+                               i === 5 ? "ECHOSPHERE UNPLUGGED" : ""}
                             </span>
                           </div>
                         </div>
