@@ -13,7 +13,7 @@ import { FiSun, FiMoon } from "react-icons/fi";
 import "./index.css";
 import puLogo from "./assets/pu_logo.svg";
 import putcLogo from "./assets/putc_logo.png";
-import InnosphereLogo from "./assets/Innosphere_logo.png";
+import innosphereLogo from "./assets/Innosphere_logo.png";
 
 // Lazy load components
 const Countdown = lazy(() => import("./components/Countdown"));
@@ -220,29 +220,21 @@ function AppContent() {
         role="navigation"
         aria-label="Main navigation"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16 items-center">
-          {/* Logo Placeholder */}
-          <div className="flex items-center space-x-2">
-            <div
-              className="w-11 h-11 rounded-full bg-deepgreen flex items-center justify-center text-white font-bold text-lg"
-              role="img"
-              aria-label="Innosphere Logo"
-            >
-              <img src={InnosphereLogo} alt="Innosphere Logo" />
+        <div className="flex justify-between h-16 items-center">
+          {/* Logo */}
+          <div className="flex items-center">
+            <div className="w-40 h-16 flex items-center" role="img" aria-label="Innosphere Logo">
+              <img 
+                src={innosphereLogo} 
+                alt="Innosphere Logo" 
+                className="w-80 h-80 object-contain animate-pulse-glow drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]" 
+              />
             </div>
-            <span className="text-white font-bold text-lg">
-              <span className="relative inline-block animate-pop text-offwhite">
-                <span className="drop-shadow-[0_8px_24px_rgba(0,209,192,0.8)]">
-                  Inno
-                </span>
-              </span>
-              <span>sphere</span>
-            </span>
           </div>
 
           {/* Desktop Navigation */}
           <div
-            className="hidden md:flex items-center space-x-8"
+            className="hidden md:flex items-center space-x-4"
             role="menubar"
             aria-label="Main menu"
           >
@@ -254,17 +246,17 @@ function AppContent() {
             >
               Home
             </a>
+            <a href="#event-registration" className="nav-link" role="menuitem">
+              Event Registration
+            </a>
             <a href="#events" className="nav-link" role="menuitem">
               Events
-            </a>
-            <a href="#timeline" className="nav-link" role="menuitem">
-              Timeline
             </a>
             <a href="#sponsors" className="nav-link" role="menuitem">
               Sponsors
             </a>
             {/* Theme Toggle Button */}
-            <div role="menuitem">
+            <div role="menuitem" className="pr-9">
               <button
                 onClick={toggleTheme}
                 className="p-2 rounded-full text-white hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-teal"
@@ -281,7 +273,7 @@ function AppContent() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex items-center space-x-4 md:hidden">
+          <div className="flex items-center space-x-4 md:hidden pr-4">
             {/* Theme Toggle Button for Mobile */}
             <div role="menuitem">
               <button
@@ -353,20 +345,20 @@ function AppContent() {
               Home
             </a>
             <a
+              href="#event-registration"
+              className="nav-link block py-2"
+              role="menuitem"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Event Registration
+            </a>
+            <a
               href="#events"
               className="nav-link block py-2"
               role="menuitem"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Events
-            </a>
-            <a
-              href="#timeline"
-              className="nav-link block py-2"
-              role="menuitem"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Timeline
             </a>
             <a
               href="#sponsors"
@@ -457,15 +449,15 @@ function AppContent() {
               <div className="flex flex-wrap justify-center gap-6">
                 <a
                   className="btn-primary focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-teal"
-                  href="#events"
+                  href="#event-registration"
                 >
                   Explore Events
                 </a>
                 <a
                   className="btn-secondary focus:outline-none focus:ring-2 focus:ring-teal focus:ring-offset-2 focus:ring-offset-white"
-                  href="#timeline"
+                  href="#events"
                 >
-                  View Timeline
+                  View Events
                 </a>
               </div>
               <Suspense
@@ -513,14 +505,14 @@ function AppContent() {
         {/* Events Placeholder */}
         <section
           ref={eventsRef}
-          id="events"
+          id="event-registration"
           className={`py-16 bg-f3f7f0 dark:bg-gray-900 ${eventsAnim} ${eventsScrollAnim}`}
           role="region"
-          aria-label="Event Registeration"
+          aria-label="Event Registration"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold mb-8 text-teal-dark">
-              Event Registeration
+              Event Registration
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div
@@ -556,14 +548,14 @@ function AppContent() {
         {/* Timeline - Schedule at a Glance */}
         <section
           ref={timelineRef}
-          id="timeline"
+          id="events"
           className={`py-16 bg-white dark:bg-gray-800 ${timelineAnim} ${timelineScrollAnim}`}
           role="region"
-          aria-label="Event Timeline"
+          aria-label="Events"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-bold mb-12 text-center text-deepgreen dark:text-teal-light">
-              Timeline
+              Events
             </h2>
             <div className="relative flex flex-col items-center">
               <div
@@ -635,33 +627,105 @@ function AppContent() {
             </div>
           </div>
         </section>
-        {/* Sponsors Placeholder */}
+        {/* Sponsors Section */}
         <section
           ref={sponsorsRef}
           id="sponsors"
           className={`py-16 bg-f3f7f0 dark:bg-gray-900 ${sponsorsAnim} ${sponsorsScrollAnim}`}
           role="region"
-          aria-label="Event Sponsors"
+          aria-label="Sponsors"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-8 text-teal-dark text-center">
-              Sponsors
+            <h2 className="text-3xl font-bold mb-12 text-teal-dark text-center">
+              Our Sponsors
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {[1, 2, 3, 4, 5, 6].map((idx) => {
-                const [ref, anim] = sponsorRefs[idx - 1];
-                return (
-                  <div
-                    key={idx}
-                    ref={ref}
-                    className={`bg-white dark:bg-gray-800 rounded-full shadow-lg flex flex-col items-center justify-center h-32 w-32 mx-auto border-2 border-teal/30 dark:border-teal/50 ${anim}`}
-                  >
-                    <span className="text-base text-gray-400 dark:text-gray-300 font-semibold text-center ">
-                      Sponsor Placeholder
-                    </span>
+            <div className="grid grid-cols-1 gap-12">
+              {/* Title Sponsor */}
+              <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 shadow-xl border-4 border-teal dark:border-teal/80 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-teal/5 to-transparent dark:from-teal/10"></div>
+                <h3 className="text-2xl font-bold text-teal-dark dark:text-teal mb-6 text-center relative">Title Sponsor</h3>
+                <div className="flex justify-center relative">
+                  <div className="w-32 h-32 rounded-full bg-white dark:bg-gray-700 border-4 border-teal dark:border-teal/80 flex items-center justify-center shadow-lg">
+                    <span className="text-gray-400 dark:text-gray-500">Logo</span>
                   </div>
-                );
-              })}
+                </div>
+              </div>
+
+              {/* Gold Sponsors */}
+              <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 shadow-xl border-4 border-yellow-400 dark:border-yellow-500/80 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/5 to-transparent dark:from-yellow-500/10"></div>
+                <h3 className="text-2xl font-bold text-yellow-600 dark:text-yellow-400 mb-6 text-center relative">Gold Sponsors</h3>
+                <div className="flex justify-center gap-8 relative">
+                  {[1, 2].map((idx) => (
+                    <div key={idx} className="w-28 h-28 rounded-full bg-white dark:bg-gray-700 border-4 border-yellow-400 dark:border-yellow-500/80 flex items-center justify-center shadow-lg">
+                      <span className="text-gray-400 dark:text-gray-500">Logo</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Silver Sponsors */}
+              <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 shadow-xl border-4 border-gray-400 dark:border-gray-500/80 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-400/5 to-transparent dark:from-gray-500/10"></div>
+                <h3 className="text-2xl font-bold text-gray-600 dark:text-gray-400 mb-6 text-center relative">Silver Sponsors</h3>
+                <div className="flex justify-center gap-6 flex-wrap relative">
+                  {[1, 2, 3, 4].map((idx) => (
+                    <div key={idx} className="w-24 h-24 rounded-full bg-white dark:bg-gray-700 border-4 border-gray-400 dark:border-gray-500/80 flex items-center justify-center shadow-lg">
+                      <span className="text-gray-400 dark:text-gray-500">Logo</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Bronze Sponsors */}
+              <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 shadow-xl border-4 border-amber-600 dark:border-amber-500/80 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-600/5 to-transparent dark:from-amber-500/10"></div>
+                <h3 className="text-2xl font-bold text-amber-700 dark:text-amber-500 mb-6 text-center relative">Bronze Sponsors</h3>
+                <div className="flex justify-center gap-6 flex-wrap relative">
+                  {[1, 2, 3, 4].map((idx) => (
+                    <div key={idx} className="w-20 h-20 rounded-full bg-white dark:bg-gray-700 border-4 border-amber-600 dark:border-amber-500/80 flex items-center justify-center shadow-lg">
+                      <span className="text-gray-400 dark:text-gray-500">Logo</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Food Sponsors */}
+              <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 shadow-xl border-4 border-green-500 dark:border-green-400/80 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent dark:from-green-400/10"></div>
+                <h3 className="text-2xl font-bold text-green-600 dark:text-green-400 mb-6 text-center relative">Food Sponsors</h3>
+                <div className="flex justify-center gap-6 flex-wrap relative">
+                  {[1, 2, 3].map((idx) => (
+                    <div key={idx} className="w-24 h-24 rounded-full bg-white dark:bg-gray-700 border-4 border-green-500 dark:border-green-400/80 flex items-center justify-center shadow-lg">
+                      <span className="text-gray-400 dark:text-gray-500">Logo</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Drink Sponsors */}
+              <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 shadow-xl border-4 border-blue-400 dark:border-blue-500/80 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-400/5 to-transparent dark:from-blue-500/10"></div>
+                <h3 className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-6 text-center relative">Drink Sponsors</h3>
+                <div className="flex justify-center gap-8 relative">
+                  {[1, 2].map((idx) => (
+                    <div key={idx} className="w-24 h-24 rounded-full bg-white dark:bg-gray-700 border-4 border-blue-400 dark:border-blue-500/80 flex items-center justify-center shadow-lg">
+                      <span className="text-gray-400 dark:text-gray-500">Logo</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Internet Sponsors */}
+              <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 shadow-xl border-4 border-purple-500 dark:border-purple-400/80 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent dark:from-purple-400/10"></div>
+                <h3 className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-6 text-center relative">Internet Sponsors</h3>
+                <div className="flex justify-center relative">
+                  <div className="w-28 h-28 rounded-full bg-white dark:bg-gray-700 border-4 border-purple-500 dark:border-purple-400/80 flex items-center justify-center shadow-lg">
+                    <span className="text-gray-400 dark:text-gray-500">Logo</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -678,16 +742,21 @@ function AppContent() {
             <div className="space-y-2">
               <p className="flex items-center">
                 <a
-                  href="mailto:putechclub@gmail.com"
+                  href="mailto:innosphere.pu@gmail.com "
                   className="text-white hover:text-teal-light transition-colors"
                 >
-                  putechclub@gmail.com
+                  innosphere.pu@gmail.com 
                 </a>
               </p>
               <p className="flex items-center">
-                <span className="text-white hover:text-teal-light transition-colors">
-                  +977-981295913
-                </span>
+                <div className="flex flex-col space-y-2">
+                  <span className="text-white hover:text-teal-light transition-colors">
+                    +977-9819295913 (Secretary)
+                  </span>
+                  <span className="text-white hover:text-teal-light transition-colors">
+                    +977-9865379393 (Executive Head)
+                  </span>
+                </div>
               </p>
               <p className="flex items-center">
                 <span className="text-white hover:text-teal-light transition-colors">
@@ -701,18 +770,18 @@ function AppContent() {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="#events"
+                  href="#event-registration"
                   className="text-white hover:text-teal-light transition-colors"
                 >
-                  Events
+                  Event Registration
                 </a>
               </li>
               <li>
                 <a
-                  href="#timeline"
+                  href="#events"
                   className="text-white hover:text-teal-light transition-colors"
                 >
-                  Timeline
+                  Events
                 </a>
               </li>
             </ul>
