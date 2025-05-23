@@ -254,11 +254,11 @@ function AppContent() {
             >
               Home
             </a>
+            <a href="#event-registration" className="nav-link" role="menuitem">
+              Event Registration
+            </a>
             <a href="#events" className="nav-link" role="menuitem">
               Events
-            </a>
-            <a href="#timeline" className="nav-link" role="menuitem">
-              Timeline
             </a>
             <a href="#sponsors" className="nav-link" role="menuitem">
               Sponsors
@@ -353,20 +353,20 @@ function AppContent() {
               Home
             </a>
             <a
+              href="#event-registration"
+              className="nav-link block py-2"
+              role="menuitem"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Event Registration
+            </a>
+            <a
               href="#events"
               className="nav-link block py-2"
               role="menuitem"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Events
-            </a>
-            <a
-              href="#timeline"
-              className="nav-link block py-2"
-              role="menuitem"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Timeline
             </a>
             <a
               href="#sponsors"
@@ -457,15 +457,15 @@ function AppContent() {
               <div className="flex flex-wrap justify-center gap-6">
                 <a
                   className="btn-primary focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-teal"
-                  href="#events"
+                  href="#event-registration"
                 >
                   Explore Events
                 </a>
                 <a
                   className="btn-secondary focus:outline-none focus:ring-2 focus:ring-teal focus:ring-offset-2 focus:ring-offset-white"
-                  href="#timeline"
+                  href="#events"
                 >
-                  View Timeline
+                  View Events
                 </a>
               </div>
               <Suspense
@@ -513,14 +513,14 @@ function AppContent() {
         {/* Events Placeholder */}
         <section
           ref={eventsRef}
-          id="events"
+          id="event-registration"
           className={`py-16 bg-f3f7f0 dark:bg-gray-900 ${eventsAnim} ${eventsScrollAnim}`}
           role="region"
-          aria-label="Event Registeration"
+          aria-label="Event Registration"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold mb-8 text-teal-dark">
-              Event Registeration
+              Event Registration
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div
@@ -556,14 +556,14 @@ function AppContent() {
         {/* Timeline - Schedule at a Glance */}
         <section
           ref={timelineRef}
-          id="timeline"
+          id="events"
           className={`py-16 bg-white dark:bg-gray-800 ${timelineAnim} ${timelineScrollAnim}`}
           role="region"
-          aria-label="Event Timeline"
+          aria-label="Events"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-bold mb-12 text-center text-deepgreen dark:text-teal-light">
-              Timeline
+              Events
             </h2>
             <div className="relative flex flex-col items-center">
               <div
@@ -635,33 +635,98 @@ function AppContent() {
             </div>
           </div>
         </section>
-        {/* Sponsors Placeholder */}
+        {/* Sponsors Section */}
         <section
           ref={sponsorsRef}
           id="sponsors"
           className={`py-16 bg-f3f7f0 dark:bg-gray-900 ${sponsorsAnim} ${sponsorsScrollAnim}`}
           role="region"
-          aria-label="Event Sponsors"
+          aria-label="Sponsors"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-8 text-teal-dark text-center">
-              Sponsors
+            <h2 className="text-3xl font-bold mb-12 text-teal-dark text-center">
+              Our Sponsors
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {[1, 2, 3, 4, 5, 6].map((idx) => {
-                const [ref, anim] = sponsorRefs[idx - 1];
-                return (
-                  <div
-                    key={idx}
-                    ref={ref}
-                    className={`bg-white dark:bg-gray-800 rounded-full shadow-lg flex flex-col items-center justify-center h-32 w-32 mx-auto border-2 border-teal/30 dark:border-teal/50 ${anim}`}
-                  >
-                    <span className="text-base text-gray-400 dark:text-gray-300 font-semibold text-center ">
-                      Sponsor Placeholder
-                    </span>
+            <div className="grid grid-cols-1 gap-12">
+              {/* Title Sponsor */}
+              <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border-2 border-teal/30 dark:border-teal/50">
+                <h3 className="text-2xl font-bold text-teal-dark dark:text-teal mb-6 text-center">Title Sponsor</h3>
+                <div className="flex justify-center">
+                  <div className="w-32 h-32 rounded-full bg-gray-100 dark:bg-gray-700 border-2 border-teal/30 dark:border-teal/50 flex items-center justify-center">
+                    <span className="text-gray-400 dark:text-gray-500">Logo</span>
                   </div>
-                );
-              })}
+                </div>
+              </div>
+
+              {/* Gold Sponsors */}
+              <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border-2 border-teal/30 dark:border-teal/50">
+                <h3 className="text-2xl font-bold text-teal-dark dark:text-teal mb-6 text-center">Gold Sponsors</h3>
+                <div className="flex justify-center gap-8">
+                  {[1, 2].map((idx) => (
+                    <div key={idx} className="w-28 h-28 rounded-full bg-gray-100 dark:bg-gray-700 border-2 border-teal/30 dark:border-teal/50 flex items-center justify-center">
+                      <span className="text-gray-400 dark:text-gray-500">Logo</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Silver Sponsors */}
+              <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border-2 border-teal/30 dark:border-teal/50">
+                <h3 className="text-2xl font-bold text-teal-dark dark:text-teal mb-6 text-center">Silver Sponsors</h3>
+                <div className="flex justify-center gap-6 flex-wrap">
+                  {[1, 2, 3, 4].map((idx) => (
+                    <div key={idx} className="w-24 h-24 rounded-full bg-gray-100 dark:bg-gray-700 border-2 border-teal/30 dark:border-teal/50 flex items-center justify-center">
+                      <span className="text-gray-400 dark:text-gray-500">Logo</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Bronze Sponsors */}
+              <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border-2 border-teal/30 dark:border-teal/50">
+                <h3 className="text-2xl font-bold text-teal-dark dark:text-teal mb-6 text-center">Bronze Sponsors</h3>
+                <div className="flex justify-center gap-6 flex-wrap">
+                  {[1, 2, 3, 4].map((idx) => (
+                    <div key={idx} className="w-20 h-20 rounded-full bg-gray-100 dark:bg-gray-700 border-2 border-teal/30 dark:border-teal/50 flex items-center justify-center">
+                      <span className="text-gray-400 dark:text-gray-500">Logo</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Food Sponsors */}
+              <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border-2 border-teal/30 dark:border-teal/50">
+                <h3 className="text-2xl font-bold text-teal-dark dark:text-teal mb-6 text-center">Food Sponsors</h3>
+                <div className="flex justify-center gap-6 flex-wrap">
+                  {[1, 2, 3].map((idx) => (
+                    <div key={idx} className="w-24 h-24 rounded-full bg-gray-100 dark:bg-gray-700 border-2 border-teal/30 dark:border-teal/50 flex items-center justify-center">
+                      <span className="text-gray-400 dark:text-gray-500">Logo</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Drink Sponsors */}
+              <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border-2 border-teal/30 dark:border-teal/50">
+                <h3 className="text-2xl font-bold text-teal-dark dark:text-teal mb-6 text-center">Drink Sponsors</h3>
+                <div className="flex justify-center gap-8">
+                  {[1, 2].map((idx) => (
+                    <div key={idx} className="w-24 h-24 rounded-full bg-gray-100 dark:bg-gray-700 border-2 border-teal/30 dark:border-teal/50 flex items-center justify-center">
+                      <span className="text-gray-400 dark:text-gray-500">Logo</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Internet Sponsors */}
+              <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border-2 border-teal/30 dark:border-teal/50">
+                <h3 className="text-2xl font-bold text-teal-dark dark:text-teal mb-6 text-center">Internet Sponsors</h3>
+                <div className="flex justify-center">
+                  <div className="w-28 h-28 rounded-full bg-gray-100 dark:bg-gray-700 border-2 border-teal/30 dark:border-teal/50 flex items-center justify-center">
+                    <span className="text-gray-400 dark:text-gray-500">Logo</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -701,18 +766,18 @@ function AppContent() {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="#events"
+                  href="#event-registration"
                   className="text-white hover:text-teal-light transition-colors"
                 >
-                  Events
+                  Event Registration
                 </a>
               </li>
               <li>
                 <a
-                  href="#timeline"
+                  href="#events"
                   className="text-white hover:text-teal-light transition-colors"
                 >
-                  Timeline
+                  Events
                 </a>
               </li>
             </ul>
