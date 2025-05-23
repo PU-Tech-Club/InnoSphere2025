@@ -224,7 +224,11 @@ function AppContent() {
           {/* Logo */}
           <div className="flex items-center">
             <div className="w-64 h-20 flex items-center" role="img" aria-label="Innosphere Logo">
-              <img src={innosphereLogo} alt="Innosphere Logo" className="w-full h-full object-contain" />
+              <img 
+                src={innosphereLogo} 
+                alt="Innosphere Logo" 
+                className="w-full h-full object-contain animate-pulse-glow drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]" 
+              />
             </div>
           </div>
 
@@ -746,7 +750,8 @@ function AppContent() {
               </p>
               <p className="flex items-center">
                 <span className="text-white hover:text-teal-light transition-colors">
-                  +977-981295913
+                  +977-9819295913 (Secretary)
+                  +977-9865379393 (Executive Head)
                 </span>
               </p>
               <p className="flex items-center">
