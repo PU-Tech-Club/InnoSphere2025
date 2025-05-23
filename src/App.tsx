@@ -13,7 +13,7 @@ import { FiSun, FiMoon } from "react-icons/fi";
 import "./index.css";
 import puLogo from "./assets/pu_logo.svg";
 import putcLogo from "./assets/putc_logo.png";
-import InnosphereLogo from "./assets/Innosphere_logo.png";
+import innosphereLogo from "./assets/Innosphere_logo.png";
 
 // Lazy load components
 const Countdown = lazy(() => import("./components/Countdown"));
@@ -220,29 +220,17 @@ function AppContent() {
         role="navigation"
         aria-label="Main navigation"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16 items-center">
-          {/* Logo Placeholder */}
-          <div className="flex items-center space-x-2">
-            <div
-              className="w-11 h-11 rounded-full bg-deepgreen flex items-center justify-center text-white font-bold text-lg"
-              role="img"
-              aria-label="Innosphere Logo"
-            >
-              <img src={InnosphereLogo} alt="Innosphere Logo" />
+        <div className="flex justify-between h-16 items-center">
+          {/* Logo */}
+          <div className="flex items-center">
+            <div className="w-64 h-20 flex items-center" role="img" aria-label="Innosphere Logo">
+              <img src={innosphereLogo} alt="Innosphere Logo" className="w-full h-full object-contain" />
             </div>
-            <span className="text-white font-bold text-lg">
-              <span className="relative inline-block animate-pop text-offwhite">
-                <span className="drop-shadow-[0_8px_24px_rgba(0,209,192,0.8)]">
-                  Inno
-                </span>
-              </span>
-              <span>sphere</span>
-            </span>
           </div>
 
           {/* Desktop Navigation */}
           <div
-            className="hidden md:flex items-center space-x-8"
+            className="hidden md:flex items-center space-x-4"
             role="menubar"
             aria-label="Main menu"
           >
@@ -264,7 +252,7 @@ function AppContent() {
               Sponsors
             </a>
             {/* Theme Toggle Button */}
-            <div role="menuitem">
+            <div role="menuitem" className="pr-9">
               <button
                 onClick={toggleTheme}
                 className="p-2 rounded-full text-white hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-teal"
@@ -281,7 +269,7 @@ function AppContent() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex items-center space-x-4 md:hidden">
+          <div className="flex items-center space-x-4 md:hidden pr-4">
             {/* Theme Toggle Button for Mobile */}
             <div role="menuitem">
               <button
