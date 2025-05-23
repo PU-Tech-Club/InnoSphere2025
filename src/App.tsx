@@ -203,7 +203,7 @@ function AppContent() {
   const [event3Ref, event3Anim] = useStaggeredAnimation(300);
 
   // Staggered animation refs for timeline events
-  const timelineEventRefs = Array(9)
+  const timelineEventRefs = Array(7)
     .fill(null)
     .map((_, i) => useStaggeredAnimation(i * 150));
 
@@ -563,7 +563,7 @@ function AppContent() {
                 style={{ minHeight: "600px" }}
               />
               <div className="w-full">
-                {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((step, i) => {
+                {[0, 1, 2, 3, 4, 5, 6].map((step, i) => {
                   const [ref, anim] = timelineEventRefs[i];
                   return (
                     <div className="flex w-full mb-12 relative" key={i}>
@@ -579,12 +579,10 @@ function AppContent() {
                                 : i === 2
                                   ? "IT QUIZ"
                                   : i === 4
-                                    ? "IDEA PITCHING COMPETITION"
+                                    ? "BUSINESS IDEA PITCHING"
                                     : i === 6
-                                      ? "GAMING EVENT"
-                                      : i === 8
-                                        ? "DISCOVERY EXP"
-                                        : ""}
+                                      ? "E-FOOTBALL TOURNAMENT"
+                                      : ""}
                             </span>
                           </div>
                         </div>
@@ -613,11 +611,9 @@ function AppContent() {
                                 ? "SOFTWARE PROJECT EXHIBITION"
                                 : i === 3
                                   ? "INNOCANVAS"
-                                : i === 5
-                                  ? "ECHOSPHERE UNPLUGGED"
-                                : i === 7
-                                  ? "NEXT GEN INNOVATES EXPO"
-                                  : ""}
+                                  : i === 5
+                                    ? "ECHOSPHERE UNPLUGGED"
+                                    : ""}
                             </span>
                           </div>
                         </div>
