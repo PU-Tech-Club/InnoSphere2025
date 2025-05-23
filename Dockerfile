@@ -17,21 +17,15 @@ COPY . .
 RUN bun run build
 
 # Production stage
-FROM oven/bun:1-slim
+FROM nginx:alpine
 
-# Set working directory
-WORKDIR /app
+# Copy built files to Nginx
+COPY --from=build /app/dist /usr/share/nginx/html
 
-# Copy built assets and necessary files
-COPY --from=build /app/dist ./dist
-COPY --from=build /app/package.json ./
-COPY --from=build /app/bun.lock ./
+# Copy Nginx configuration
+COPY nginx.conf /etc/nginx/nginx.conf
 
-# Install production dependencies only
-RUN bun install --production
+# Expose port 80
+EXPOSE 80
 
-# Expose port 3000
-EXPOSE 3000
-
-# Start the app
-CMD ["bun", "run", "start"] 
+CMD ["nginx", "-g", "daemon off;"] 
