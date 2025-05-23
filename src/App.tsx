@@ -750,10 +750,10 @@ function AppContent() {
             <div className="space-y-2">
               <p className="flex items-center">
                 <a
-                  href="mailto:putechclub@gmail.com"
+                  href="malto:innosphere.pu@gmail.com "
                   className="text-white hover:text-teal-light transition-colors"
                 >
-                  putechclub@gmail.com
+                  innosphere.pu@gmail.com 
                 </a>
               </p>
               <p className="flex items-center">
