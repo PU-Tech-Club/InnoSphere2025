@@ -649,21 +649,23 @@ function AppContent() {
             </h2>
             <div className="grid grid-cols-1 gap-12">
               {/* Title Sponsor */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border-2 border-teal/30 dark:border-teal/50">
-                <h3 className="text-2xl font-bold text-teal-dark dark:text-teal mb-6 text-center">Title Sponsor</h3>
-                <div className="flex justify-center">
-                  <div className="w-32 h-32 rounded-full bg-gray-100 dark:bg-gray-700 border-2 border-teal/30 dark:border-teal/50 flex items-center justify-center">
+              <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 shadow-xl border-4 border-teal dark:border-teal/80 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-teal/5 to-transparent dark:from-teal/10"></div>
+                <h3 className="text-2xl font-bold text-teal-dark dark:text-teal mb-6 text-center relative">Title Sponsor</h3>
+                <div className="flex justify-center relative">
+                  <div className="w-32 h-32 rounded-full bg-white dark:bg-gray-700 border-4 border-teal dark:border-teal/80 flex items-center justify-center shadow-lg">
                     <span className="text-gray-400 dark:text-gray-500">Logo</span>
                   </div>
                 </div>
               </div>
 
               {/* Gold Sponsors */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border-2 border-teal/30 dark:border-teal/50">
-                <h3 className="text-2xl font-bold text-teal-dark dark:text-teal mb-6 text-center">Gold Sponsors</h3>
-                <div className="flex justify-center gap-8">
+              <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 shadow-xl border-4 border-yellow-400 dark:border-yellow-500/80 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/5 to-transparent dark:from-yellow-500/10"></div>
+                <h3 className="text-2xl font-bold text-yellow-600 dark:text-yellow-400 mb-6 text-center relative">Gold Sponsors</h3>
+                <div className="flex justify-center gap-8 relative">
                   {[1, 2].map((idx) => (
-                    <div key={idx} className="w-28 h-28 rounded-full bg-gray-100 dark:bg-gray-700 border-2 border-teal/30 dark:border-teal/50 flex items-center justify-center">
+                    <div key={idx} className="w-28 h-28 rounded-full bg-white dark:bg-gray-700 border-4 border-yellow-400 dark:border-yellow-500/80 flex items-center justify-center shadow-lg">
                       <span className="text-gray-400 dark:text-gray-500">Logo</span>
                     </div>
                   ))}
@@ -671,11 +673,12 @@ function AppContent() {
               </div>
 
               {/* Silver Sponsors */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border-2 border-teal/30 dark:border-teal/50">
-                <h3 className="text-2xl font-bold text-teal-dark dark:text-teal mb-6 text-center">Silver Sponsors</h3>
-                <div className="flex justify-center gap-6 flex-wrap">
+              <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 shadow-xl border-4 border-gray-400 dark:border-gray-500/80 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-400/5 to-transparent dark:from-gray-500/10"></div>
+                <h3 className="text-2xl font-bold text-gray-600 dark:text-gray-400 mb-6 text-center relative">Silver Sponsors</h3>
+                <div className="flex justify-center gap-6 flex-wrap relative">
                   {[1, 2, 3, 4].map((idx) => (
-                    <div key={idx} className="w-24 h-24 rounded-full bg-gray-100 dark:bg-gray-700 border-2 border-teal/30 dark:border-teal/50 flex items-center justify-center">
+                    <div key={idx} className="w-24 h-24 rounded-full bg-white dark:bg-gray-700 border-4 border-gray-400 dark:border-gray-500/80 flex items-center justify-center shadow-lg">
                       <span className="text-gray-400 dark:text-gray-500">Logo</span>
                     </div>
                   ))}
@@ -683,11 +686,12 @@ function AppContent() {
               </div>
 
               {/* Bronze Sponsors */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border-2 border-teal/30 dark:border-teal/50">
-                <h3 className="text-2xl font-bold text-teal-dark dark:text-teal mb-6 text-center">Bronze Sponsors</h3>
-                <div className="flex justify-center gap-6 flex-wrap">
+              <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 shadow-xl border-4 border-amber-600 dark:border-amber-500/80 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-600/5 to-transparent dark:from-amber-500/10"></div>
+                <h3 className="text-2xl font-bold text-amber-700 dark:text-amber-500 mb-6 text-center relative">Bronze Sponsors</h3>
+                <div className="flex justify-center gap-6 flex-wrap relative">
                   {[1, 2, 3, 4].map((idx) => (
-                    <div key={idx} className="w-20 h-20 rounded-full bg-gray-100 dark:bg-gray-700 border-2 border-teal/30 dark:border-teal/50 flex items-center justify-center">
+                    <div key={idx} className="w-20 h-20 rounded-full bg-white dark:bg-gray-700 border-4 border-amber-600 dark:border-amber-500/80 flex items-center justify-center shadow-lg">
                       <span className="text-gray-400 dark:text-gray-500">Logo</span>
                     </div>
                   ))}
@@ -695,11 +699,12 @@ function AppContent() {
               </div>
 
               {/* Food Sponsors */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border-2 border-teal/30 dark:border-teal/50">
-                <h3 className="text-2xl font-bold text-teal-dark dark:text-teal mb-6 text-center">Food Sponsors</h3>
-                <div className="flex justify-center gap-6 flex-wrap">
+              <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 shadow-xl border-4 border-green-500 dark:border-green-400/80 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent dark:from-green-400/10"></div>
+                <h3 className="text-2xl font-bold text-green-600 dark:text-green-400 mb-6 text-center relative">Food Sponsors</h3>
+                <div className="flex justify-center gap-6 flex-wrap relative">
                   {[1, 2, 3].map((idx) => (
-                    <div key={idx} className="w-24 h-24 rounded-full bg-gray-100 dark:bg-gray-700 border-2 border-teal/30 dark:border-teal/50 flex items-center justify-center">
+                    <div key={idx} className="w-24 h-24 rounded-full bg-white dark:bg-gray-700 border-4 border-green-500 dark:border-green-400/80 flex items-center justify-center shadow-lg">
                       <span className="text-gray-400 dark:text-gray-500">Logo</span>
                     </div>
                   ))}
@@ -707,11 +712,12 @@ function AppContent() {
               </div>
 
               {/* Drink Sponsors */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border-2 border-teal/30 dark:border-teal/50">
-                <h3 className="text-2xl font-bold text-teal-dark dark:text-teal mb-6 text-center">Drink Sponsors</h3>
-                <div className="flex justify-center gap-8">
+              <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 shadow-xl border-4 border-blue-400 dark:border-blue-500/80 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-400/5 to-transparent dark:from-blue-500/10"></div>
+                <h3 className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-6 text-center relative">Drink Sponsors</h3>
+                <div className="flex justify-center gap-8 relative">
                   {[1, 2].map((idx) => (
-                    <div key={idx} className="w-24 h-24 rounded-full bg-gray-100 dark:bg-gray-700 border-2 border-teal/30 dark:border-teal/50 flex items-center justify-center">
+                    <div key={idx} className="w-24 h-24 rounded-full bg-white dark:bg-gray-700 border-4 border-blue-400 dark:border-blue-500/80 flex items-center justify-center shadow-lg">
                       <span className="text-gray-400 dark:text-gray-500">Logo</span>
                     </div>
                   ))}
@@ -719,10 +725,11 @@ function AppContent() {
               </div>
 
               {/* Internet Sponsors */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border-2 border-teal/30 dark:border-teal/50">
-                <h3 className="text-2xl font-bold text-teal-dark dark:text-teal mb-6 text-center">Internet Sponsors</h3>
-                <div className="flex justify-center">
-                  <div className="w-28 h-28 rounded-full bg-gray-100 dark:bg-gray-700 border-2 border-teal/30 dark:border-teal/50 flex items-center justify-center">
+              <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 shadow-xl border-4 border-purple-500 dark:border-purple-400/80 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent dark:from-purple-400/10"></div>
+                <h3 className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-6 text-center relative">Internet Sponsors</h3>
+                <div className="flex justify-center relative">
+                  <div className="w-28 h-28 rounded-full bg-white dark:bg-gray-700 border-4 border-purple-500 dark:border-purple-400/80 flex items-center justify-center shadow-lg">
                     <span className="text-gray-400 dark:text-gray-500">Logo</span>
                   </div>
                 </div>
