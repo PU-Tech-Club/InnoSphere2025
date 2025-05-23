@@ -203,7 +203,7 @@ function AppContent() {
   const [event3Ref, event3Anim] = useStaggeredAnimation(300);
 
   // Staggered animation refs for timeline events
-  const timelineEventRefs = Array(7)
+  const timelineEventRefs = Array(9)
     .fill(null)
     .map((_, i) => useStaggeredAnimation(i * 150));
 
@@ -223,11 +223,11 @@ function AppContent() {
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="w-64 h-20 flex items-center" role="img" aria-label="Innosphere Logo">
+            <div className="w-40 h-16 flex items-center" role="img" aria-label="Innosphere Logo">
               <img 
                 src={innosphereLogo} 
                 alt="Innosphere Logo" 
-                className="w-full h-full object-contain animate-pulse-glow drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]" 
+                className="w-80 h-80 object-contain animate-pulse-glow drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]" 
               />
             </div>
           </div>
@@ -563,7 +563,7 @@ function AppContent() {
                 style={{ minHeight: "600px" }}
               />
               <div className="w-full">
-                {[0, 1, 2, 3, 4, 5, 6].map((step, i) => {
+                {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((step, i) => {
                   const [ref, anim] = timelineEventRefs[i];
                   return (
                     <div className="flex w-full mb-12 relative" key={i}>
@@ -579,10 +579,12 @@ function AppContent() {
                                 : i === 2
                                   ? "IT QUIZ"
                                   : i === 4
-                                    ? "BUSINESS IDEA PITCHING"
+                                    ? "IDEA PITCHING COMPETITION"
                                     : i === 6
-                                      ? "E-FOOTBALL TOURNAMENT"
-                                      : ""}
+                                      ? "GAMING EVENT"
+                                      : i === 8
+                                        ? "DISCOVERY EXP"
+                                        : ""}
                             </span>
                           </div>
                         </div>
@@ -611,9 +613,11 @@ function AppContent() {
                                 ? "SOFTWARE PROJECT EXHIBITION"
                                 : i === 3
                                   ? "INNOCANVAS"
-                                  : i === 5
-                                    ? "ECHOSPHERE UNPLUGGED"
-                                    : ""}
+                                : i === 5
+                                  ? "ECHOSPHERE UNPLUGGED"
+                                : i === 7
+                                  ? "NEXT GEN INNOVATES EXPO"
+                                  : ""}
                             </span>
                           </div>
                         </div>
@@ -742,17 +746,21 @@ function AppContent() {
             <div className="space-y-2">
               <p className="flex items-center">
                 <a
-                  href="malto:innosphere.pu@gmail.com "
+                  href="mailto:innosphere.pu@gmail.com "
                   className="text-white hover:text-teal-light transition-colors"
                 >
                   innosphere.pu@gmail.com 
                 </a>
               </p>
               <p className="flex items-center">
-                <span className="text-white hover:text-teal-light transition-colors">
-                  +977-9819295913 (Secretary)
-                  +977-9865379393 (Executive Head)
-                </span>
+                <div className="flex flex-col space-y-2">
+                  <span className="text-white hover:text-teal-light transition-colors">
+                    +977-9819295913 (Secretary)
+                  </span>
+                  <span className="text-white hover:text-teal-light transition-colors">
+                    +977-9865379393 (Executive Head)
+                  </span>
+                </div>
               </p>
               <p className="flex items-center">
                 <span className="text-white hover:text-teal-light transition-colors">
