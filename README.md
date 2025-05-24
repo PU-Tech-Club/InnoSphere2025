@@ -15,6 +15,11 @@ cd InnoSphere2025
 ```bash
 bun install && bun run dev
 ```
+Note: if you are getting `Error: Cannot find module '@rollup/rollup-darwin-x64'` in mac x86 intel system
+```bash
+rm -rf node_modules bun.lockb package-lock.json && npm install && bun run dev
+```
+
 
 # **Contribute**
 
