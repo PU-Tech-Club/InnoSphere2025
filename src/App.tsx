@@ -186,7 +186,7 @@ function AppContent() {
 
   // Mobile menu state
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+  const [activeMenu, setActiveMenu] = useState("home");
   // Theme
   const { isDarkMode, toggleTheme } = useTheme();
 
@@ -242,19 +242,47 @@ function AppContent() {
           >
             <a
               href="#"
-              className="nav-link-active"
+              className={`${activeMenu === "home" ? "nav-link-active" : "nav-link"} block py-2`}
               role="menuitem"
-              aria-current="page"
+              aria-current={activeMenu === "home" ? "page" : undefined}
+              onClick={() => {
+                setActiveMenu("home");
+                setIsMobileMenuOpen(false);
+              }}
             >
               Home
             </a>
-            <a href="#event-registration" className="nav-link" role="menuitem">
+            <a
+              href="#event-registration"
+              className={`${activeMenu === "event-registration" ? "nav-link-active" : "nav-link"} block py-2`}
+              role="menuitem"
+              onClick={() => {
+                setActiveMenu("event-registration");
+                setIsMobileMenuOpen(false);
+              }}
+            >
               Event Registration
             </a>
-            <a href="#events" className="nav-link" role="menuitem">
+            <a
+              href="#events"
+              className={`${activeMenu === "events" ? "nav-link-active" : "nav-link"} block py-2`}
+              role="menuitem"
+              onClick={() => {
+                setActiveMenu("events");
+                setIsMobileMenuOpen(false);
+              }}
+            >
               Events
             </a>
-            <a href="#sponsors" className="nav-link hidden" role="menuitem">
+            <a
+              href="#sponsors"
+              className={`${activeMenu === "sponsors" ? "nav-link-active" : "nav-link hidden"} block py-2`}
+              role="menuitem"
+              onClick={() => {
+                setActiveMenu("sponsors");
+                setIsMobileMenuOpen(false);
+              }}
+            >
               Sponsors
             </a>
             {/* Theme Toggle Button */}
