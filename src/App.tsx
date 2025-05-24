@@ -444,7 +444,7 @@ function AppContent() {
                 <span>sphere</span>
               </h1>
               <p className="text-xl md:text-2xl font-medium max-w-2xl mx-auto leading-relaxed text-white">
-                Empowered by Innovation
+              Where Innovation Meets Innovation
               </p>
               <div className="flex flex-wrap justify-center gap-6">
                 <a
@@ -485,19 +485,19 @@ function AppContent() {
             <div className="card">
               <div className="p-6">
                 <h2 className="heading-secondary">Date</h2>
-                <p className="text-secondary">June 8</p>
+                <p className="text-secondary">June 8, 2025</p>
               </div>
             </div>
             <div className="card">
               <div className="p-6">
                 <h2 className="heading-secondary">Location</h2>
-                <p className="text-secondary">Pokhara University, Khudi</p>
+                <p className="text-secondary">Pokhara University, Pokhara Metropolitan City-30, Kaski</p>
               </div>
             </div>
             <div className="card">
               <div className="p-6">
                 <h2 className="heading-secondary">Competitions</h2>
-                <p className="text-secondary">Different domains</p>
+                <p className="text-secondary">Dynamic domains</p>
               </div>
             </div>
           </div>
