@@ -228,6 +228,7 @@ function AppContent() {
                 src={innosphereLogo} 
                 alt="Innosphere Logo" 
                 className="w-80 h-80 object-contain animate-pulse-glow drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]" 
+                // disable image overlay block that prevents user from clicking menu in mobile
                 style={{ pointerEvents: 'none' }}
               />
             </div>
