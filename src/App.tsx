@@ -254,7 +254,7 @@ function AppContent() {
             <a href="#events" className="nav-link" role="menuitem">
               Events
             </a>
-            <a href="#sponsors" className="nav-link" role="menuitem">
+            <a href="#sponsors" className="nav-link hidden" role="menuitem">
               Sponsors
             </a>
             {/* Theme Toggle Button */}
@@ -634,7 +634,7 @@ function AppContent() {
         <section
           ref={sponsorsRef}
           id="sponsors"
-          className={`py-16 bg-f3f7f0 dark:bg-gray-900 ${sponsorsAnim} ${sponsorsScrollAnim}`}
+          className={`py-16 bg-f3f7f0 dark:bg-gray-900 ${sponsorsAnim} ${sponsorsScrollAnim} hidden`}
           role="region"
           aria-label="Sponsors"
         >
@@ -693,6 +693,17 @@ function AppContent() {
                 </div>
               </div>
 
+              {/* Internet Sponsors */}
+              <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 shadow-xl border-4 border-purple-500 dark:border-purple-400/80 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent dark:from-purple-400/10"></div>
+                <h3 className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-6 text-center relative">Internet Sponsors</h3>
+                <div className="flex justify-center relative">
+                  <div className="w-28 h-28 rounded-full bg-white dark:bg-gray-700 border-4 border-purple-500 dark:border-purple-400/80 flex items-center justify-center shadow-lg">
+                    <span className="text-gray-400 dark:text-gray-500">Logo</span>
+                  </div>
+                </div>
+              </div>
+
               {/* Food Sponsors */}
               <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 shadow-xl border-4 border-green-500 dark:border-green-400/80 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent dark:from-green-400/10"></div>
@@ -719,16 +730,6 @@ function AppContent() {
                 </div>
               </div>
 
-              {/* Internet Sponsors */}
-              <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 shadow-xl border-4 border-purple-500 dark:border-purple-400/80 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent dark:from-purple-400/10"></div>
-                <h3 className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-6 text-center relative">Internet Sponsors</h3>
-                <div className="flex justify-center relative">
-                  <div className="w-28 h-28 rounded-full bg-white dark:bg-gray-700 border-4 border-purple-500 dark:border-purple-400/80 flex items-center justify-center shadow-lg">
-                    <span className="text-gray-400 dark:text-gray-500">Logo</span>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </section>
@@ -754,16 +755,17 @@ function AppContent() {
               <p className="flex items-center">
                 <div className="flex flex-col space-y-2">
                   <span className="text-white hover:text-teal-light transition-colors">
-                    +977-9819295913 (Secretary)
+                    +977-9819295913 (Secretary - Tech Club)
                   </span>
                   <span className="text-white hover:text-teal-light transition-colors">
-                    +977-9865379393 (Executive Head)
+                    +977-9865379393 (Innosphere Coordinator)
                   </span>
                 </div>
               </p>
               <p className="flex items-center">
                 <span className="text-white hover:text-teal-light transition-colors">
-                  Pokhara University, Khudi
+                  Pokhara University, Pokhara Metropolitan City-30, Kaski
+
                 </span>
               </p>
             </div>
