@@ -527,7 +527,7 @@ function AppContent() {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div
-              className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl border-2 border-lightgreen/30 dark:border-teal/30 p-8 sm:p-10 lg:p-12 space-y-4 transition-all duration-300 ease-in-out ${event1Anim}`}
+              className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl border-2 border-lightgreen/30 dark:border-teal/30 p-8 sm:p-10 lg:p-12 space-y-4`}
             >
               <p className="text-gray-700 dark:text-gray-200 text-base sm:text-lg md:text-xl leading-relaxed tracking-wide text-justify">
                 <strong className="text-teal-dark dark:text-lightgreen font-semibold">InnoSphere 1.0</strong> is a dynamic one-day technology festival hosted by the <strong> Tech Club at Pokhara University </strong> under the slogan "Where Innovation Meets Imagination." On<strong> June 8, 2025</strong>, undergraduate and high-school students, startups, industry experts, and community
