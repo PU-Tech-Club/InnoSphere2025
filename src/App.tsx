@@ -592,18 +592,39 @@ function AppContent() {
                 className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 ${event1Anim}`}
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
-                  <a href="https://forms.gle/KD1yyW22Uds3K1xo7">
-                    Event Placeholder
+                  <a href="https://forms.gle/WAucRqbY9EgWZ21L8" target="_blank">
+                    Hardware Project Exhibition 
                   </a>
+         
                 </span>
-                <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold"></span>
+                <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
+                           (For undergraduate students)
+                           
+                </span>
+                <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
+                            <a href="https://forms.gle/WAucRqbY9EgWZ21L8" target="_blank">
+                    Click to register
+                  </a>
+                           
+                </span>
               </div>
               <div
                 ref={event2Ref}
                 className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 ${event2Anim}`}
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
-                  Event Placeholder
+                  <a href="https://forms.gle/aCumqCVxbKHowRan9" target="_blank">
+                    Software Project Exhibition
+                  </a>
+                </span>
+                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
+                           (For undergraduate students)
+                </span>
+                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
+                            <a href="https://forms.gle/aCumqCVxbKHowRan9" target="_blank">
+                    Click to register
+                  </a>
+                           
                 </span>
               </div>
               <div
@@ -611,8 +632,120 @@ function AppContent() {
                 className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 ${event3Anim}`}
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
-                  Event Placeholder
+                  <a href="https://forms.gle/gMabdzYFQ5a8kvhc9" target="_blank">
+                  NextGen Innovators Expo
+                  </a>
                 </span>
+                <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
+                           (For school-level students)
+                </span>
+                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
+                            <a href="https://forms.gle/gMabdzYFQ5a8kvhc9" target="_blank">
+                    Click to register
+                  </a>
+                  </span>
+              </div>
+              <div
+                ref={event3Ref}
+                className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 ${event3Anim}`}
+              >
+                <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
+                  <a href="#" target="_blank">
+                  InnoCanvas
+                  </a>
+                </span>
+            
+                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
+                            <a href="#" target="_blank">
+                    Poster Design Competition
+                  </a>
+                  </span>
+                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
+                            <a href="#" target="_blank">
+                    Registration Opening Soon
+                  </a>
+                  </span>
+              </div>
+            <div
+                ref={event3Ref}
+                className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 ${event3Anim}`}
+              >
+                <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
+                  <a href="#" target="_blank">
+                  Idea Pitching Competition
+                  </a>
+                </span>
+            
+                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
+                            <a href="#" target="_blank">
+                    Registration Opening Soon
+                  </a>
+                  </span>
+              </div>
+               <div
+                ref={event3Ref}
+                className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 ${event3Anim}`}
+              >
+                <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
+                  <a href="https://forms.gle/gMabdzYFQ5a8kvhc9" target="_blank">
+                  PUBG Mobile Tournament
+                  </a>
+                </span>
+            
+                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
+                            <a href="#" target="_blank">
+                    Registration Opening Soon
+                  </a>
+                  </span>
+              </div>
+              <div
+                ref={event3Ref}
+                className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 ${event3Anim}`}
+              >
+                <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
+                  <a href="https://forms.gle/gMabdzYFQ5a8kvhc9" target="_blank">
+                  E-football Tournament
+                  </a>
+                </span>
+            
+                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
+                            <a href="#" target="_blank">
+                    Registration Opening Soon
+                  </a>
+                  </span>
+              </div>
+              <div
+                ref={event3Ref}
+                className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 ${event3Anim}`}
+              >
+                <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
+                  <a href="#" target="_blank">
+                  EchoSphere Unplugged
+                  </a>
+                </span>
+                <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
+                    (Musical Event)
+                  </span>
+                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
+                            <a href="#" target="_blank">
+                    Registration Opening Soon
+                  </a>
+                  </span>
+              </div>
+               <div
+                ref={event3Ref}
+                className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 ${event3Anim}`}
+              >
+                <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
+                  <a href="#" target="_blank">
+                  Workshops
+                  </a>
+                </span>
+                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
+                            <a href="#" target="_blank">
+                    Registration Opening Soon
+                  </a>
+                  </span>
               </div>
             </div>
           </div>
