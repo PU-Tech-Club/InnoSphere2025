@@ -253,6 +253,18 @@ function AppContent() {
               Home
             </a>
             <a
+              href="#about"
+              className={`${activeMenu === "about" ? "nav-link-active" : "nav-link"} block py-2`}
+              role="menuitem"
+              aria-current={activeMenu === "about" ? "page" : undefined}
+              onClick={() => {
+                setActiveMenu("about");
+                setIsMobileMenuOpen(false);
+              }}
+            >
+              About
+            </a>
+            <a
               href="#event-registration"
               className={`${activeMenu === "event-registration" ? "nav-link-active" : "nav-link"} block py-2`}
               role="menuitem"
@@ -518,9 +530,7 @@ function AppContent() {
               className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl border-2 border-lightgreen/30 dark:border-teal/30 p-8 sm:p-10 lg:p-12 space-y-4 transition-all duration-300 ease-in-out ${event1Anim}`}
             >
               <p className="text-gray-700 dark:text-gray-200 text-base sm:text-lg md:text-xl leading-relaxed tracking-wide text-justify">
-                <strong className="text-teal-dark dark:text-lightgreen font-semibold">InnoSphere 1.0</strong> is a dynamic one-day technology festival hosted by the Tech Club at
-                Pokhara University under the slogan “Where Innovation Meets Imagination.” On June 8,
-                2025, undergraduate and high-school students, startups, industry experts, and community
+                <strong className="text-teal-dark dark:text-lightgreen font-semibold">InnoSphere 1.0</strong> is a dynamic one-day technology festival hosted by the <strong> Tech Club at Pokhara University </strong> under the slogan “Where Innovation Meets Imagination.” On<strong> June 8, 2025</strong>, undergraduate and high-school students, startups, industry experts, and community
                 members will converge to showcase hardware and software innovations, participate in IT
                 quizzes, digital poster design, STEM project exhibits, and gaming tournaments. Attendees
                 can also join hands-on workshops covering recent trends in ICT, as well as non-tech events
@@ -832,6 +842,14 @@ function AppContent() {
           <div>
             <h2 className="text-xl font-bold mb-4 text-white">Quick Links</h2>
             <ul className="space-y-2">
+               <li>
+                <a
+                  href="#about"
+                  className="text-white hover:text-teal-light transition-colors"
+                >
+                  About
+                </a>
+              </li>
               <li>
                 <a
                   href="#event-registration"
