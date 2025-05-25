@@ -203,7 +203,7 @@ function AppContent() {
   const [event3Ref, event3Anim] = useStaggeredAnimation(300);
 
   // Staggered animation refs for timeline events
-  const timelineEventRefs = Array(7)
+  const timelineEventRefs = Array(8)
     .fill(null)
     .map((_, i) => useStaggeredAnimation(i * 150));
 
@@ -530,7 +530,7 @@ function AppContent() {
               className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl border-2 border-lightgreen/30 dark:border-teal/30 p-8 sm:p-10 lg:p-12 space-y-4 transition-all duration-300 ease-in-out ${event1Anim}`}
             >
               <p className="text-gray-700 dark:text-gray-200 text-base sm:text-lg md:text-xl leading-relaxed tracking-wide text-justify">
-                <strong className="text-teal-dark dark:text-lightgreen font-semibold">InnoSphere 1.0</strong> is a dynamic one-day technology festival hosted by the <strong> Tech Club at Pokhara University </strong> under the slogan “Where Innovation Meets Imagination.” On<strong> June 8, 2025</strong>, undergraduate and high-school students, startups, industry experts, and community
+                <strong className="text-teal-dark dark:text-lightgreen font-semibold">InnoSphere 1.0</strong> is a dynamic one-day technology festival hosted by the <strong> Tech Club at Pokhara University </strong> under the slogan "Where Innovation Meets Imagination." On<strong> June 8, 2025</strong>, undergraduate and high-school students, startups, industry experts, and community
                 members will converge to showcase hardware and software innovations, participate in IT
                 quizzes, digital poster design, STEM project exhibits, and gaming tournaments. Attendees
                 can also join hands-on workshops covering recent trends in ICT, as well as non-tech events
@@ -768,7 +768,7 @@ function AppContent() {
                 style={{ minHeight: "600px" }}
               />
               <div className="w-full">
-                {[0, 1, 2, 3, 4, 5, 6].map((step, i) => {
+                {[0, 1, 2, 3, 4, 5, 6, 7].map((step, i) => {
                   const [ref, anim] = timelineEventRefs[i];
                   return (
                     <div className="flex w-full mb-12 relative" key={i}>
@@ -784,7 +784,7 @@ function AppContent() {
                                 : i === 2
                                   ? "PUBG-Mobile Tournament"
                                   : i === 4
-                                    ? "BUSINESS IDEA PITCHING"
+                                    ? "Idea Pitching Competition"
                                     : i === 6
                                       ? "E-FOOTBALL TOURNAMENT"
                                       : ""}
@@ -818,6 +818,8 @@ function AppContent() {
                                   ? "INNOCANVAS"
                                   : i === 5
                                     ? "ECHOSPHERE UNPLUGGED"
+                                    : i === 7
+                                      ? "NEXTGEN INNOVATORS EXPO"
                                     : ""}
                             </span>
                           </div>
