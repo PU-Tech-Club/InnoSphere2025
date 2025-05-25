@@ -216,13 +216,13 @@ function AppContent() {
     <div className="min-h-screen bg-offwhite dark:bg-gray-900 transition-colors duration-300">
       {/* Navbar */}
       <nav
-        className="bg-teal-dark shadow-lg w-full fixed z-50"
+        className="bg-gradient-to-r to-[#0f3f3a] from-teal-500 shadow-lg w-full fixed z-50"
         role="navigation"
         aria-label="Main navigation"
       >
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center w-1/2 ">
             <div className="w-40 h-16 flex items-center" role="img" aria-label="Innosphere Logo">
               <img 
                 src={innosphereLogo} 
@@ -405,7 +405,7 @@ function AppContent() {
       {/* Hero Section */}
       <div className="pt-16">
         <section
-          className={`relative h-[70vh] md:h-[80vh] bg-gradient-to-r from-teal-dark via-teal to-deepgreen flex flex-col items-center justify-center overflow-hidden ${heroAnim}`}
+          className={`relative h-[70vh] min-h-[120vh] bg-gradient-to-r from-teal-dark via-teal to-deepgreen flex flex-col items-center justify-center overflow-hidden ${heroAnim}`}
           role="banner"
         >
           {/* Floating Elements */}
@@ -462,7 +462,7 @@ function AppContent() {
               src={putcLogo}
               alt="PUTC Logo"
               className="absolute w-14 h-14 opacity-80 animate-float-medium"
-              style={{ top: "25%", left: "30%" }}
+              style={{ top: "25%", left: "25%" }}
             />
           </div>
 
@@ -473,9 +473,10 @@ function AppContent() {
                   Inno
                 </span>
                 <span>sphere</span>
+                <span>  1.0</span>
               </h1>
               <p className="text-xl md:text-2xl font-medium max-w-2xl mx-auto leading-relaxed text-white">
-              Where Innovation Meets Innovation
+              Where Innovation Meets Imagination
               </p>
               <div className="flex flex-wrap justify-center gap-6">
                 <a
@@ -505,6 +506,36 @@ function AppContent() {
             </div>
           </div>
         </section>
+        
+        {/* About */}
+        <section
+        id="about"
+        className="py-16 bg-f3f7f0 dark:bg-gray-900"
+        role="region"
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div
+              className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl border-2 border-lightgreen/30 dark:border-teal/30 p-8 sm:p-10 lg:p-12 space-y-4 transition-all duration-300 ease-in-out ${event1Anim}`}
+            >
+              <p className="text-gray-700 dark:text-gray-200 text-base sm:text-lg md:text-xl leading-relaxed tracking-wide text-justify">
+                <strong className="text-teal-dark dark:text-lightgreen font-semibold">InnoSphere 1.0</strong> is a dynamic one-day technology festival hosted by the Tech Club at
+                Pokhara University under the slogan “Where Innovation Meets Imagination.” On June 8,
+                2025, undergraduate and high-school students, startups, industry experts, and community
+                members will converge to showcase hardware and software innovations, participate in IT
+                quizzes, digital poster design, STEM project exhibits, and gaming tournaments. Attendees
+                can also join hands-on workshops covering recent trends in ICT, as well as non-tech events
+                like idea pitching, musical performances, and the Discovery Expo marketplace. By
+                fostering creativity, collaboration, and real-world impact, InnoSphere 1.0 empowers the
+                next generation of innovators and sets a new benchmark for student-led tech events
+                nationwide.
+              </p>
+              <span className="block text-center text-xl text-gray-400 dark:text-gray-300 font-semibold">
+                {/* Optional subtitle or call to action here */}
+              </span>
+            </div>
+          </div>
+        </section>
+                
         {/* Info cards */}
         <section
           ref={infoRef}
