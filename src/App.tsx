@@ -782,7 +782,7 @@ function AppContent() {
                               {i === 0
                                 ? "HARDWARE PROJECT EXHIBITION"
                                 : i === 2
-                                  ? "IT QUIZ"
+                                  ? "PUBG-Mobile Tournament"
                                   : i === 4
                                     ? "BUSINESS IDEA PITCHING"
                                     : i === 6
