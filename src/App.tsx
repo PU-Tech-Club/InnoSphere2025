@@ -684,14 +684,14 @@ function AppContent() {
                 className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
-                  <a href="https://forms.gle/gMabdzYFQ5a8kvhc9" target="_blank">
-                  PUBG Mobile Tournament
+                  <a href="https://forms.gle/n2GE1DYC1wk55MCeA" target="_blank">
+                  PUBG Mobile LAN Tournament
                   </a>
                 </span>
-            
+                
                  <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
-                            <a href="#" target="_blank">
-                    Registration Opening Soon
+                            <a href="https://forms.gle/n2GE1DYC1wk55MCeA" target="_blank">
+                    Click here to register
                   </a>
                   </span>
               </div>
