@@ -529,7 +529,7 @@ function AppContent() {
             <div
               className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl border-2 border-lightgreen/30 dark:border-teal/30 p-8 sm:p-10 lg:p-12 space-y-4`}
             >
-              <p className="text-gray-700 dark:text-gray-200 text-base sm:text-lg md:text-xl leading-relaxed tracking-wide text-justify">
+              <p className="text-gray-700 dark:text-gray-200 text-base sm:text-lg md:text-xl leading-tight md:leading-normal tracking-wide text-justify">
                 <strong className="text-teal-dark dark:text-lightgreen font-semibold">InnoSphere 1.0</strong> is a dynamic one-day technology festival hosted by the <strong> Tech Club at Pokhara University </strong> under the slogan "Where Innovation Meets Imagination." On<strong> June 8, 2025</strong>, undergraduate and high-school students, startups, industry experts, and community
                 members will converge to showcase hardware and software innovations, participate in IT
                 quizzes, digital poster design, STEM project exhibits, and gaming tournaments. Attendees
@@ -539,9 +539,6 @@ function AppContent() {
                 next generation of innovators and sets a new benchmark for student-led tech events
                 nationwide.
               </p>
-              <span className="block text-center text-xl text-gray-400 dark:text-gray-300 font-semibold">
-                {/* Optional subtitle or call to action here */}
-              </span>
             </div>
           </div>
         </section>
@@ -589,7 +586,7 @@ function AppContent() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div
                 ref={event1Ref}
-                className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 ${event1Anim}`}
+                className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
                   <a href="https://forms.gle/WAucRqbY9EgWZ21L8" target="_blank">
@@ -609,8 +606,8 @@ function AppContent() {
                 </span>
               </div>
               <div
-                ref={event2Ref}
-                className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 ${event2Anim}`}
+                ref={event1Ref}
+                className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
                   <a href="https://forms.gle/aCumqCVxbKHowRan9" target="_blank">
@@ -628,8 +625,8 @@ function AppContent() {
                 </span>
               </div>
               <div
-                ref={event3Ref}
-                className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 ${event3Anim}`}
+                ref={event1Ref}
+                className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
                   <a href="https://forms.gle/gMabdzYFQ5a8kvhc9" target="_blank">
@@ -646,8 +643,8 @@ function AppContent() {
                   </span>
               </div>
               <div
-                ref={event3Ref}
-                className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 ${event3Anim}`}
+                ref={event1Ref}
+                className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
                   <a href="#" target="_blank">
@@ -667,8 +664,8 @@ function AppContent() {
                   </span>
               </div>
             <div
-                ref={event3Ref}
-                className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 ${event3Anim}`}
+                ref={event1Ref}
+                className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
                   <a href="#" target="_blank">
@@ -683,8 +680,8 @@ function AppContent() {
                   </span>
               </div>
                <div
-                ref={event3Ref}
-                className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 ${event3Anim}`}
+                ref={event1Ref}
+                className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
                   <a href="https://forms.gle/gMabdzYFQ5a8kvhc9" target="_blank">
@@ -699,8 +696,8 @@ function AppContent() {
                   </span>
               </div>
               <div
-                ref={event3Ref}
-                className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 ${event3Anim}`}
+                ref={event1Ref}
+                className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
                   <a href="https://forms.gle/gMabdzYFQ5a8kvhc9" target="_blank">
@@ -715,8 +712,8 @@ function AppContent() {
                   </span>
               </div>
               <div
-                ref={event3Ref}
-                className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 ${event3Anim}`}
+                ref={event1Ref}
+                className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
                   <a href="#" target="_blank">
@@ -733,8 +730,8 @@ function AppContent() {
                   </span>
               </div>
                <div
-                ref={event3Ref}
-                className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 ${event3Anim}`}
+                ref={event1Ref}
+                className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
                   <a href="#" target="_blank">
