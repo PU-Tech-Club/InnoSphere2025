@@ -14,6 +14,7 @@ import "./index.css";
 import puLogo from "./assets/pu_logo.svg";
 import putcLogo from "./assets/putc_logo.png";
 import innosphereLogo from "./assets/Innosphere_logo.png";
+import { useGoogleAnalytics } from "./hooks/useGoogleAnalytics";
 
 // Lazy load components
 const Countdown = lazy(() => import("./components/Countdown"));
@@ -176,6 +177,9 @@ function App() {
 }
 
 function AppContent() {
+  // Add Google Analytics hook
+  const { trackEvent } = useGoogleAnalytics();
+  
   // Animation states
   const heroAnim = useFadeIn(0);
   const infoAnim = useFadeIn(300);
@@ -189,6 +193,13 @@ function AppContent() {
   const [activeMenu, setActiveMenu] = useState("home");
   // Theme
   const { isDarkMode, toggleTheme } = useTheme();
+
+  // Track menu clicks
+  const handleMenuClick = (menu: string) => {
+    setActiveMenu(menu);
+    setIsMobileMenuOpen(false);
+    trackEvent('navigation', 'menu', menu);
+  };
 
   // Scroll animation refs
   const [infoRef, infoScrollAnim] = useScrollAnimation();
@@ -228,8 +239,8 @@ function AppContent() {
                 src={innosphereLogo} 
                 alt="Innosphere Logo" 
                 className="w-80 h-80 object-contain animate-pulse-glow drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]" 
-                // disable image overlay block that prevents user from clicking menu in mobile
                 style={{ pointerEvents: 'none' }}
+                onClick={() => trackEvent('click', 'logo', 'Innosphere Logo')}
               />
             </div>
           </div>
@@ -245,10 +256,7 @@ function AppContent() {
               className={`${activeMenu === "home" ? "nav-link-active" : "nav-link"} block py-2`}
               role="menuitem"
               aria-current={activeMenu === "home" ? "page" : undefined}
-              onClick={() => {
-                setActiveMenu("home");
-                setIsMobileMenuOpen(false);
-              }}
+              onClick={() => handleMenuClick("home")}
             >
               Home
             </a>
@@ -257,10 +265,7 @@ function AppContent() {
               className={`${activeMenu === "about" ? "nav-link-active" : "nav-link"} block py-2`}
               role="menuitem"
               aria-current={activeMenu === "about" ? "page" : undefined}
-              onClick={() => {
-                setActiveMenu("about");
-                setIsMobileMenuOpen(false);
-              }}
+              onClick={() => handleMenuClick("about")}
             >
               About
             </a>
@@ -268,10 +273,7 @@ function AppContent() {
               href="#event-registration"
               className={`${activeMenu === "event-registration" ? "nav-link-active" : "nav-link"} block py-2`}
               role="menuitem"
-              onClick={() => {
-                setActiveMenu("event-registration");
-                setIsMobileMenuOpen(false);
-              }}
+              onClick={() => handleMenuClick("event-registration")}
             >
               Event Registration
             </a>
@@ -279,10 +281,7 @@ function AppContent() {
               href="#events"
               className={`${activeMenu === "events" ? "nav-link-active" : "nav-link"} block py-2`}
               role="menuitem"
-              onClick={() => {
-                setActiveMenu("events");
-                setIsMobileMenuOpen(false);
-              }}
+              onClick={() => handleMenuClick("events")}
             >
               Events
             </a>
@@ -290,17 +289,17 @@ function AppContent() {
               href="#sponsors"
               className={`${activeMenu === "sponsors" ? "nav-link-active" : "nav-link hidden"} block py-2`}
               role="menuitem"
-              onClick={() => {
-                setActiveMenu("sponsors");
-                setIsMobileMenuOpen(false);
-              }}
+              onClick={() => handleMenuClick("sponsors")}
             >
               Sponsors
             </a>
             {/* Theme Toggle Button */}
             <div role="menuitem" className="pr-9">
               <button
-                onClick={toggleTheme}
+                onClick={() => {
+                  toggleTheme();
+                  trackEvent('click', 'theme', isDarkMode ? 'light' : 'dark');
+                }}
                 className="p-2 rounded-full text-white hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-teal"
                 aria-label="Toggle theme"
                 aria-pressed={isDarkMode}
@@ -319,7 +318,10 @@ function AppContent() {
             {/* Theme Toggle Button for Mobile */}
             <div role="menuitem">
               <button
-                onClick={toggleTheme}
+                onClick={() => {
+                  toggleTheme();
+                  trackEvent('click', 'theme', isDarkMode ? 'light' : 'dark');
+                }}
                 className="p-2 rounded-full text-white hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-teal"
                 aria-label="Toggle theme"
                 aria-pressed={isDarkMode}
@@ -589,20 +591,25 @@ function AppContent() {
                 className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
-                  <a href="https://forms.gle/WAucRqbY9EgWZ21L8" target="_blank">
+                  <a 
+                    href="https://forms.gle/WAucRqbY9EgWZ21L8" 
+                    target="_blank"
+                    onClick={() => trackEvent('registration', 'event_registration', 'Hardware Project Exhibition')}
+                  >
                     Hardware Project Exhibition 
                   </a>
-         
                 </span>
                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
                            (For undergraduate students)
-                           
                 </span>
                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
-                            <a href="https://forms.gle/WAucRqbY9EgWZ21L8" target="_blank">
+                  <a 
+                    href="https://forms.gle/WAucRqbY9EgWZ21L8" 
+                    target="_blank"
+                    onClick={() => trackEvent('registration', 'event_registration', 'Hardware Project Exhibition')}
+                  >
                     Click to register
                   </a>
-                           
                 </span>
               </div>
               <div
@@ -610,18 +617,25 @@ function AppContent() {
                 className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
-                  <a href="https://forms.gle/aCumqCVxbKHowRan9" target="_blank">
+                  <a 
+                    href="https://forms.gle/aCumqCVxbKHowRan9" 
+                    target="_blank"
+                    onClick={() => trackEvent('registration', 'event_registration', 'Software Project Exhibition')}
+                  >
                     Software Project Exhibition
                   </a>
                 </span>
-                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
+                <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
                            (For undergraduate students)
                 </span>
-                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
-                            <a href="https://forms.gle/aCumqCVxbKHowRan9" target="_blank">
+                <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
+                  <a 
+                    href="https://forms.gle/aCumqCVxbKHowRan9" 
+                    target="_blank"
+                    onClick={() => trackEvent('registration', 'event_registration', 'Software Project Exhibition')}
+                  >
                     Click to register
                   </a>
-                           
                 </span>
               </div>
               <div
@@ -629,120 +643,176 @@ function AppContent() {
                 className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
-                  <a href="https://forms.gle/gMabdzYFQ5a8kvhc9" target="_blank">
-                  NextGen Innovators Expo
+                  <a 
+                    href="https://forms.gle/gMabdzYFQ5a8kvhc9" 
+                    target="_blank"
+                    onClick={() => trackEvent('registration', 'event_registration', 'NextGen Innovators Expo')}
+                  >
+                    NextGen Innovators Expo
                   </a>
                 </span>
                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
                            (For school-level students)
                 </span>
-                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
-                            <a href="https://forms.gle/gMabdzYFQ5a8kvhc9" target="_blank">
+                <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
+                  <a 
+                    href="https://forms.gle/gMabdzYFQ5a8kvhc9" 
+                    target="_blank"
+                    onClick={() => trackEvent('registration', 'event_registration', 'NextGen Innovators Expo')}
+                  >
                     Click to register
                   </a>
-                  </span>
+                </span>
               </div>
               <div
                 ref={event1Ref}
                 className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
-                  <a href="https://forms.gle/d6ey8KP3s54AW2Xz8" target="_blank">
-                  InnoCanvas
+                  <a 
+                    href="https://forms.gle/d6ey8KP3s54AW2Xz8" 
+                    target="_blank"
+                    onClick={() => trackEvent('registration', 'event_registration', 'InnoCanvas')}
+                  >
+                    InnoCanvas
                   </a>
                 </span>
-            
-                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
-                            <a href="https://forms.gle/d6ey8KP3s54AW2Xz8" target="_blank">
+                <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
+                  <a 
+                    href="https://forms.gle/d6ey8KP3s54AW2Xz8" 
+                    target="_blank"
+                    onClick={() => trackEvent('registration', 'event_registration', 'InnoCanvas')}
+                  >
                     Poster Design Competition
                   </a>
-                  </span>
-                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
-                            <a href="https://forms.gle/d6ey8KP3s54AW2Xz8" target="_blank">
+                </span>
+                <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
+                  <a 
+                    href="https://forms.gle/d6ey8KP3s54AW2Xz8" 
+                    target="_blank"
+                    onClick={() => trackEvent('registration', 'event_registration', 'InnoCanvas')}
+                  >
                     Click here to register
-                  </a>
-                  </span>
-              </div>
-            <div
-                ref={event1Ref}
-                className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
-              >
-                <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
-                  <a href="https://forms.gle/XmWyMnTnLGxT8Tfo7" target="_blank">
-                  Idea Pitching Competition
                   </a>
                 </span>
-            
-                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
-                            <a href="https://forms.gle/XmWyMnTnLGxT8Tfo7" target="_blank">
-                    Click here to register
-                  </a>
-                  </span>
-              </div>
-               <div
-                ref={event1Ref}
-                className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
-              >
-                <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
-                  <a href="https://forms.gle/n2GE1DYC1wk55MCeA" target="_blank">
-                  PUBG Mobile LAN Tournament
-                  </a>
-                </span>
-                
-                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
-                            <a href="https://forms.gle/n2GE1DYC1wk55MCeA" target="_blank">
-                    Click here to register
-                  </a>
-                  </span>
               </div>
               <div
                 ref={event1Ref}
                 className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
-                  <a href="https://forms.gle/gMabdzYFQ5a8kvhc9" target="_blank">
-                  E-football Tournament
+                  <a 
+                    href="https://forms.gle/XmWyMnTnLGxT8Tfo7" 
+                    target="_blank"
+                    onClick={() => trackEvent('registration', 'event_registration', 'Idea Pitching Competition')}
+                  >
+                    Idea Pitching Competition
                   </a>
                 </span>
-            
-                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
-                            <a href="#" target="_blank">
+                <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
+                  <a 
+                    href="https://forms.gle/XmWyMnTnLGxT8Tfo7" 
+                    target="_blank"
+                    onClick={() => trackEvent('registration', 'event_registration', 'Idea Pitching Competition')}
+                  >
+                    Click here to register
+                  </a>
+                </span>
+              </div>
+              <div
+                ref={event1Ref}
+                className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
+              >
+                <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
+                  <a 
+                    href="https://forms.gle/n2GE1DYC1wk55MCeA" 
+                    target="_blank"
+                    onClick={() => trackEvent('registration', 'event_registration', 'PUBG Mobile LAN Tournament')}
+                  >
+                    PUBG Mobile LAN Tournament
+                  </a>
+                </span>
+                <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
+                  <a 
+                    href="https://forms.gle/n2GE1DYC1wk55MCeA" 
+                    target="_blank"
+                    onClick={() => trackEvent('registration', 'event_registration', 'PUBG Mobile LAN Tournament')}
+                  >
+                    Click here to register
+                  </a>
+                </span>
+              </div>
+              <div
+                ref={event1Ref}
+                className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
+              >
+                <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
+                  <a 
+                    href="https://forms.gle/gMabdzYFQ5a8kvhc9" 
+                    target="_blank"
+                    onClick={() => trackEvent('registration', 'event_registration', 'E-football Tournament')}
+                  >
+                    E-football Tournament
+                  </a>
+                </span>
+                <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
+                  <a 
+                    href="#" 
+                    target="_blank"
+                    onClick={() => trackEvent('registration', 'event_registration', 'E-football Tournament')}
+                  >
                     Registration Opening Soon
                   </a>
-                  </span>
+                </span>
               </div>
               <div
                 ref={event1Ref}
                 className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
-                  <a href="#" target="_blank">
-                  EchoSphere Unplugged
+                  <a 
+                    href="#" 
+                    target="_blank"
+                    onClick={() => trackEvent('registration', 'event_registration', 'EchoSphere Unplugged')}
+                  >
+                    EchoSphere Unplugged
                   </a>
                 </span>
                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
                     (Musical Event)
-                  </span>
-                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
-                            <a href="#" target="_blank">
+                </span>
+                <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
+                  <a 
+                    href="#" 
+                    target="_blank"
+                    onClick={() => trackEvent('registration', 'event_registration', 'EchoSphere Unplugged')}
+                  >
                     Registration Opening Soon
                   </a>
-                  </span>
+                </span>
               </div>
-               <div
+              <div
                 ref={event1Ref}
                 className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
-                  <a href="#" target="_blank">
-                  Workshops
+                  <a 
+                    href="#" 
+                    target="_blank"
+                    onClick={() => trackEvent('registration', 'event_registration', 'Workshops')}
+                  >
+                    Workshops
                   </a>
                 </span>
-                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
-                            <a href="#" target="_blank">
+                <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
+                  <a 
+                    href="#" 
+                    target="_blank"
+                    onClick={() => trackEvent('registration', 'event_registration', 'Workshops')}
+                  >
                     Registration Opening Soon
                   </a>
-                  </span>
+                </span>
               </div>
             </div>
           </div>
