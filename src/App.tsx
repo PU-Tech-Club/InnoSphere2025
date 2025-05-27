@@ -384,16 +384,32 @@ function AppContent() {
               className="nav-link-active block py-2"
               role="menuitem"
               aria-current="page"
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                trackEvent('navigation', 'menu', 'home');
+              }}
             >
               Home
+            </a>
+            <a
+              href="#about"
+              className="nav-link block py-2"
+              role="menuitem"
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                trackEvent('navigation', 'menu', 'about');
+              }}
+            >
+              About
             </a>
             <a
               href="#event-registration"
               className="nav-link block py-2"
               role="menuitem"
-              onClick={() => setIsMobileMenuOpen(false)
-              }
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                trackEvent('navigation', 'menu', 'event-registration');
+              }}
             >
               Event Registration
             </a>
@@ -401,15 +417,21 @@ function AppContent() {
               href="#events"
               className="nav-link block py-2"
               role="menuitem"
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                trackEvent('navigation', 'menu', 'events');
+              }}
             >
               Events
             </a>
             <a
               href="#sponsors"
-              className="nav-link block py-2"
+              className="nav-link py-2 hidden"
               role="menuitem"
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                trackEvent('navigation', 'menu', 'sponsors');
+              }}
             >
               Sponsors
             </a>
