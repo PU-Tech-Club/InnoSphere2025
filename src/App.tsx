@@ -647,19 +647,19 @@ function AppContent() {
                 className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
-                  <a href="#" target="_blank">
+                  <a href="https://forms.gle/d6ey8KP3s54AW2Xz8" target="_blank">
                   InnoCanvas
                   </a>
                 </span>
             
                  <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
-                            <a href="#" target="_blank">
+                            <a href="https://forms.gle/d6ey8KP3s54AW2Xz8" target="_blank">
                     Poster Design Competition
                   </a>
                   </span>
                  <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
-                            <a href="#" target="_blank">
-                    Registration Opening Soon
+                            <a href="https://forms.gle/d6ey8KP3s54AW2Xz8" target="_blank">
+                    Click here to register
                   </a>
                   </span>
               </div>
@@ -668,14 +668,14 @@ function AppContent() {
                 className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
-                  <a href="#" target="_blank">
+                  <a href="https://forms.gle/XmWyMnTnLGxT8Tfo7" target="_blank">
                   Idea Pitching Competition
                   </a>
                 </span>
             
                  <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
-                            <a href="#" target="_blank">
-                    Registration Opening Soon
+                            <a href="https://forms.gle/XmWyMnTnLGxT8Tfo7" target="_blank">
+                    Click here to register
                   </a>
                   </span>
               </div>
