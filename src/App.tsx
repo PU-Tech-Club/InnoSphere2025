@@ -1055,10 +1055,10 @@ function AppContent() {
               <p className="flex items-center">
                 <div className="flex flex-col space-y-2">
                   <span className="text-white hover:text-teal-light transition-colors">
-                    +977-9819295913 (Secretary - Tech Club)
+                    <a href="tel:+977-9819295913">+977-9819295913</a> (Secretary - Tech Club)
                   </span>
                   <span className="text-white hover:text-teal-light transition-colors">
-                    +977-9865379393 (Innosphere Coordinator)
+                    <a href="tel:+977-9865379393">+977-9865379393</a> (Innosphere Coordinator)
                   </span>
                 </div>
               </p>
