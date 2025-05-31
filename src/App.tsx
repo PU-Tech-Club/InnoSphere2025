@@ -194,6 +194,13 @@ function AppContent() {
   // Theme
   const { isDarkMode, toggleTheme } = useTheme();
 
+  // Set default hash route to #home
+  useEffect(() => {
+    if (!window.location.hash) {
+      window.location.hash = 'home';
+    }
+  }, []);
+
   // Track menu clicks
   const handleMenuClick = (menu: string) => {
     setActiveMenu(menu);

@@ -4,6 +4,15 @@ declare global {
   interface Window {
     gtag: (...args: any[]) => void;
   }
+
+  interface Navigator {
+    userAgentData?: {
+      brands: Array<{
+        brand: string;
+        version: string;
+      }>;
+    };
+  }
 }
 
 // Helper function to detect device type
@@ -20,28 +29,18 @@ const getDeviceType = () => {
 
 // Helper function to get browser info
 const getBrowserInfo = () => {
-  const ua = navigator.userAgent;
-  let browserName;
-  let browserVersion;
-
-  if (ua.includes('Firefox/')) {
-    browserName = 'Firefox';
-    browserVersion = ua.split('Firefox/')[1].split(' ')[0];
-  } else if (ua.includes('Chrome/')) {
-    browserName = 'Chrome';
-    browserVersion = ua.split('Chrome/')[1].split(' ')[0];
-  } else if (ua.includes('Safari/')) {
-    browserName = 'Safari';
-    browserVersion = ua.split('Version/')[1]?.split(' ')[0] || 'unknown';
-  } else if (ua.includes('Edge/')) {
-    browserName = 'Edge';
-    browserVersion = ua.split('Edge/')[1].split(' ')[0];
-  } else {
-    browserName = 'Other';
-    browserVersion = 'unknown';
+  if (!navigator.userAgentData?.brands) {
+    return {
+      browserName: 'unknown',
+      browserVersion: 'unknown',
+    };
   }
 
-  return { browserName, browserVersion };
+  const brand = navigator.userAgentData.brands.find((b: { brand: string }) => b.brand !== 'Not?A_Brand');
+  return {
+    browserName: brand?.brand || 'unknown',
+    browserVersion: brand?.version || 'unknown',
+  };
 };
 
 // Helper function to get OS info
@@ -82,6 +81,7 @@ export const useGoogleAnalytics = () => {
     // Track initial page view with enhanced device data
     window.gtag('config', 'G-EKCTV12SY3', {
       page_path: window.location.pathname + window.location.hash,
+      path_title: document.title,
       send_page_view: true,
       anonymize_ip: true,
       allow_google_signals: true,
@@ -93,17 +93,17 @@ export const useGoogleAnalytics = () => {
 
     // Function to handle hash changes
     const handleHashChange = () => {
-      window.gtag('config', 'G-EKCTV12SY3', {
-        page_path: window.location.pathname + window.location.hash,
-        send_page_view: true,
+      window.gtag('event', 'page_view', {
+        page_path: window.location.hash || '#home',
+        page_title: document.title,
       });
     };
 
     // Add event listener for hash changes
     window.addEventListener('hashchange', handleHashChange);
 
-    // Track user's device info
-    window.gtag('event', 'user_info', {
+    // Track user properties using GA4's user_properties API
+    window.gtag('set', 'user_properties', {
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
       language: navigator.language,
       screen_resolution: `${window.screen.width}x${window.screen.height}`,
