@@ -637,7 +637,7 @@ function AppContent() {
                     target="_blank"
                     onClick={() => trackEvent('registration', 'event_registration', 'Hardware Project Exhibition')}
                   >
-                    Click to register
+                    Click here to register
                   </a>
                 </span>
               </div>
@@ -663,7 +663,7 @@ function AppContent() {
                     target="_blank"
                     onClick={() => trackEvent('registration', 'event_registration', 'Software Project Exhibition')}
                   >
-                    Click to register
+                    Click here to register
                   </a>
                 </span>
               </div>
@@ -689,7 +689,7 @@ function AppContent() {
                     target="_blank"
                     onClick={() => trackEvent('registration', 'event_registration', 'NextGen Innovators Expo')}
                   >
-                    Click to register
+                    Click here to register
                   </a>
                 </span>
               </div>
@@ -777,7 +777,7 @@ function AppContent() {
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
                   <a 
-                    href="https://forms.gle/gMabdzYFQ5a8kvhc9" 
+                    href="https://forms.gle/6ViXNYpMsWQJzwUMA" 
                     target="_blank"
                     onClick={() => trackEvent('registration', 'event_registration', 'E-football Tournament')}
                   >
@@ -786,11 +786,11 @@ function AppContent() {
                 </span>
                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
                   <a 
-                    href="#" 
+                    href="https://forms.gle/6ViXNYpMsWQJzwUMA" 
                     target="_blank"
                     onClick={() => trackEvent('registration', 'event_registration', 'E-football Tournament')}
                   >
-                    Registration Opening Soon
+                    Click here to register
                   </a>
                 </span>
               </div>
@@ -800,7 +800,7 @@ function AppContent() {
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
                   <a 
-                    href="#" 
+                    href="https://forms.gle/MiBZnFyJfBqqndHc8" 
                     target="_blank"
                     onClick={() => trackEvent('registration', 'event_registration', 'EchoSphere Unplugged')}
                   >
@@ -812,11 +812,11 @@ function AppContent() {
                 </span>
                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
                   <a 
-                    href="#" 
+                    href="https://forms.gle/MiBZnFyJfBqqndHc8" 
                     target="_blank"
                     onClick={() => trackEvent('registration', 'event_registration', 'EchoSphere Unplugged')}
                   >
-                    Registration Opening Soon
+                    Click here to register
                   </a>
                 </span>
               </div>
@@ -830,7 +830,7 @@ function AppContent() {
                     target="_blank"
                     onClick={() => trackEvent('registration', 'event_registration', 'Workshops')}
                   >
-                    Workshops
+                    Seminars/Talk Session
                   </a>
                 </span>
                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
