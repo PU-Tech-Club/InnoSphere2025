@@ -50,7 +50,7 @@
 
   /* Navigation styles with improved contrast */
   .nav-link {
-    @apply text-white font-medium transition-colors duration-200;
+    @apply relative text-white hover:text-teal-light transition-colors duration-200;
   }
 
   .nav-link:hover {
@@ -58,7 +58,27 @@
   }
 
   .nav-link-active {
-    @apply text-white font-bold border-b-2 border-white;
+    @apply nav-link font-bold text-teal-light;
+  }
+
+  .nav-link-active::after {
+    content: "";
+    @apply absolute left-0 bottom-0 w-full h-0.5 bg-teal-light rounded transition-all duration-300;
+    transform: scaleX(1);
+  }
+
+  .nav-link::after {
+    content: "";
+    @apply absolute left-0 bottom-0 w-full h-0.5 bg-teal-light rounded transition-all duration-300;
+    transform: scaleX(0);
+  }
+
+  .nav-link-active::after {
+    transform: scaleX(1);
+  }
+
+  .nav-link::after {
+    transform: scaleX(0);
   }
 }
 

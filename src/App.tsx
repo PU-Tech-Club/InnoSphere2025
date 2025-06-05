@@ -230,6 +230,35 @@ function AppContent() {
     .fill(null)
     .map((_, i) => useStaggeredAnimation(i * 100));
 
+  // Observe section visibility for active menu highlighting
+  useEffect(() => {
+    const sectionIds = ["home", "about", "event-registration", "events", "sponsors"];
+    const sections = sectionIds
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+
+    const observer = new window.IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter(entry => entry.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible.length > 0) {
+          setActiveMenu(visible[0].target.id);
+        }
+      },
+      {
+        rootMargin: "-10% 0px -70% 0px",
+        threshold: 0.05,
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section!));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section!));
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-offwhite dark:bg-gray-900 transition-colors duration-300">
       {/* Navbar */}
@@ -448,7 +477,8 @@ function AppContent() {
       {/* Hero Section */}
       <div className="pt-16">
         <section
-          className={`relative h-[70vh] min-h-[120vh] bg-gradient-to-r from-teal-dark via-teal to-deepgreen flex flex-col items-center justify-center overflow-hidden ${heroAnim}`}
+          id="home"
+          className="relative min-h-[100vh] bg-gradient-to-r from-teal-dark via-teal to-deepgreen flex flex-col items-center justify-center overflow-hidden"
           role="banner"
         >
           {/* Floating Elements */}
@@ -553,7 +583,7 @@ function AppContent() {
         {/* About */}
         <section
         id="about"
-        className="py-16 bg-f3f7f0 dark:bg-gray-900"
+        className="py-16 bg-f3f7f0 dark:bg-gray-900 min-h-[60vh]"
         role="region"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -606,7 +636,7 @@ function AppContent() {
         <section
           ref={eventsRef}
           id="event-registration"
-          className={`py-16 bg-f3f7f0 dark:bg-gray-900 ${eventsAnim} ${eventsScrollAnim}`}
+          className={`py-16 bg-f3f7f0 dark:bg-gray-900 ${eventsAnim} ${eventsScrollAnim} min-h-[60vh]`}
           role="region"
           aria-label="Event Registration"
         >
@@ -846,11 +876,11 @@ function AppContent() {
             </div>
           </div>
         </section>
-        {/* Timeline - Schedule at a Glance */}
+        {/* Events Section */}
         <section
           ref={timelineRef}
           id="events"
-          className={`py-16 bg-white dark:bg-gray-800 ${timelineAnim} ${timelineScrollAnim}`}
+          className={`py-16 bg-white dark:bg-gray-800 min-h-[90vh] ${timelineAnim} ${timelineScrollAnim}`}
           role="region"
           aria-label="Events"
         >
