@@ -96,7 +96,7 @@ function useScrollAnimation() {
         root: null,
         rootMargin: "0px",
         threshold: 0.1,
-      },
+      }
     );
 
     if (ref.current) {
@@ -137,7 +137,7 @@ function useStaggeredAnimation(delay = 0) {
         root: null,
         rootMargin: "0px",
         threshold: 0.1,
-      },
+      }
     );
 
     if (ref.current) {
@@ -179,7 +179,7 @@ function App() {
 function AppContent() {
   // Add Google Analytics hook
   const { trackEvent } = useGoogleAnalytics();
-  
+
   // Animation states
   const heroAnim = useFadeIn(0);
   const infoAnim = useFadeIn(300);
@@ -197,7 +197,7 @@ function AppContent() {
   // Set default hash route to #home
   useEffect(() => {
     if (!window.location.hash) {
-      window.location.hash = 'home';
+      window.location.hash = "home";
     }
   }, []);
 
@@ -205,7 +205,7 @@ function AppContent() {
   const handleMenuClick = (menu: string) => {
     setActiveMenu(menu);
     setIsMobileMenuOpen(false);
-    trackEvent('navigation', 'menu', menu);
+    trackEvent("navigation", "menu", menu);
   };
 
   // Scroll animation refs
@@ -241,13 +241,17 @@ function AppContent() {
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <div className="flex items-center w-1/2 ">
-            <div className="w-40 h-16 flex items-center" role="img" aria-label="Innosphere Logo">
-              <img 
-                src={innosphereLogo} 
-                alt="Innosphere Logo" 
-                className="w-80 h-80 object-contain animate-pulse-glow drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]" 
-                style={{ pointerEvents: 'none' }}
-                onClick={() => trackEvent('click', 'logo', 'Innosphere Logo')}
+            <div
+              className="w-40 h-16 flex items-center"
+              role="img"
+              aria-label="Innosphere Logo"
+            >
+              <img
+                src={innosphereLogo}
+                alt="Innosphere Logo"
+                className="w-80 h-80 object-contain animate-pulse-glow drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]"
+                style={{ pointerEvents: "none" }}
+                onClick={() => trackEvent("click", "logo", "Innosphere Logo")}
               />
             </div>
           </div>
@@ -305,7 +309,7 @@ function AppContent() {
               <button
                 onClick={() => {
                   toggleTheme();
-                  trackEvent('click', 'theme', isDarkMode ? 'light' : 'dark');
+                  trackEvent("click", "theme", isDarkMode ? "light" : "dark");
                 }}
                 className="p-2 rounded-full text-white hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-teal"
                 aria-label="Toggle theme"
@@ -327,7 +331,7 @@ function AppContent() {
               <button
                 onClick={() => {
                   toggleTheme();
-                  trackEvent('click', 'theme', isDarkMode ? 'light' : 'dark');
+                  trackEvent("click", "theme", isDarkMode ? "light" : "dark");
                 }}
                 className="p-2 rounded-full text-white hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-teal"
                 aria-label="Toggle theme"
@@ -393,7 +397,7 @@ function AppContent() {
               aria-current="page"
               onClick={() => {
                 setIsMobileMenuOpen(false);
-                trackEvent('navigation', 'menu', 'home');
+                trackEvent("navigation", "menu", "home");
               }}
             >
               Home
@@ -404,7 +408,7 @@ function AppContent() {
               role="menuitem"
               onClick={() => {
                 setIsMobileMenuOpen(false);
-                trackEvent('navigation', 'menu', 'about');
+                trackEvent("navigation", "menu", "about");
               }}
             >
               About
@@ -415,7 +419,7 @@ function AppContent() {
               role="menuitem"
               onClick={() => {
                 setIsMobileMenuOpen(false);
-                trackEvent('navigation', 'menu', 'event-registration');
+                trackEvent("navigation", "menu", "event-registration");
               }}
             >
               Event Registration
@@ -426,7 +430,7 @@ function AppContent() {
               role="menuitem"
               onClick={() => {
                 setIsMobileMenuOpen(false);
-                trackEvent('navigation', 'menu', 'events');
+                trackEvent("navigation", "menu", "events");
               }}
             >
               Events
@@ -437,7 +441,7 @@ function AppContent() {
               role="menuitem"
               onClick={() => {
                 setIsMobileMenuOpen(false);
-                trackEvent('navigation', 'menu', 'sponsors');
+                trackEvent("navigation", "menu", "sponsors");
               }}
             >
               Sponsors
@@ -516,10 +520,10 @@ function AppContent() {
                   Inno
                 </span>
                 <span>sphere</span>
-                <span>  1.0</span>
+                <span> 1.0</span>
               </h1>
               <p className="text-xl md:text-2xl font-medium max-w-2xl mx-auto leading-relaxed text-white">
-              Where Innovation Meets Imagination
+                Where Innovation Meets Imagination
               </p>
               <div className="flex flex-wrap justify-center gap-6">
                 <a
@@ -549,31 +553,40 @@ function AppContent() {
             </div>
           </div>
         </section>
-        
+
         {/* About */}
         <section
-        id="about"
-        className="py-16 bg-f3f7f0 dark:bg-gray-900"
-        role="region"
+          id="about"
+          className="py-16 bg-f3f7f0 dark:bg-gray-900"
+          role="region"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div
               className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl border-2 border-lightgreen/30 dark:border-teal/30 p-8 sm:p-10 lg:p-12 space-y-4`}
             >
               <p className="text-gray-700 dark:text-gray-200 text-base sm:text-lg md:text-xl leading-tight md:leading-normal tracking-wide text-justify">
-                <strong className="text-teal-dark dark:text-lightgreen font-semibold">InnoSphere 1.0</strong> is a dynamic one-day technology festival hosted by the <strong> Tech Club at Pokhara University </strong> under the slogan "Where Innovation Meets Imagination." On<strong> June 8, 2025</strong>, undergraduate and high-school students, startups, industry experts, and community
-                members will converge to showcase hardware and software innovations, participate in IT
-                quizzes, digital poster design, STEM project exhibits, and gaming tournaments. Attendees
-                can also join hands-on workshops covering recent trends in ICT, as well as non-tech events
-                like idea pitching, musical performances, and the Discovery Expo marketplace. By
-                fostering creativity, collaboration, and real-world impact, InnoSphere 1.0 empowers the
-                next generation of innovators and sets a new benchmark for student-led tech events
-                nationwide.
+                <strong className="text-teal-dark dark:text-lightgreen font-semibold">
+                  InnoSphere 1.0
+                </strong>{" "}
+                is a dynamic one-day technology festival hosted by the{" "}
+                <strong> Tech Club at Pokhara University </strong> under the
+                slogan "Where Innovation Meets Imagination." On
+                <strong> June 8, 2025</strong>, undergraduate and high-school
+                students, startups, industry experts, and community members will
+                converge to showcase hardware and software innovations,
+                participate in IT quizzes, digital poster design, STEM project
+                exhibits, and gaming tournaments. Attendees can also join
+                hands-on workshops covering recent trends in ICT, as well as
+                non-tech events like idea pitching, musical performances, and
+                the Discovery Expo marketplace. By fostering creativity,
+                collaboration, and real-world impact, InnoSphere 1.0 empowers
+                the next generation of innovators and sets a new benchmark for
+                student-led tech events nationwide.
               </p>
             </div>
           </div>
         </section>
-                
+
         {/* Info cards */}
         <section
           ref={infoRef}
@@ -591,7 +604,9 @@ function AppContent() {
             <div className="card">
               <div className="p-6">
                 <h2 className="heading-secondary">Location</h2>
-                <p className="text-secondary">Pokhara University, Pokhara Metropolitan City-30, Kaski</p>
+                <p className="text-secondary">
+                  Pokhara University, Pokhara Metropolitan City-30, Kaski
+                </p>
               </div>
             </div>
             <div className="card">
@@ -619,23 +634,35 @@ function AppContent() {
                 ref={event1Ref}
                 className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
               >
-                <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
-                  <a 
-                    href="https://forms.gle/WAucRqbY9EgWZ21L8" 
+                <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold text-center">
+                  <a
+                    href="https://forms.gle/WAucRqbY9EgWZ21L8"
                     target="_blank"
-                    onClick={() => trackEvent('registration', 'event_registration', 'Hardware Project Exhibition')}
+                    onClick={() =>
+                      trackEvent(
+                        "registration",
+                        "event_registration",
+                        "Hardware Project Exhibition"
+                      )
+                    }
                   >
-                    Hardware Project Exhibition 
+                    Hardware Project Exhibition
                   </a>
                 </span>
                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
-                           (For undergraduate students)
+                  (For undergraduate students)
                 </span>
                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
-                  <a 
-                    href="https://forms.gle/WAucRqbY9EgWZ21L8" 
+                  <a
+                    href="https://forms.gle/WAucRqbY9EgWZ21L8"
                     target="_blank"
-                    onClick={() => trackEvent('registration', 'event_registration', 'Hardware Project Exhibition')}
+                    onClick={() =>
+                      trackEvent(
+                        "registration",
+                        "event_registration",
+                        "Hardware Project Exhibition"
+                      )
+                    }
                   >
                     Click here to register
                   </a>
@@ -645,23 +672,35 @@ function AppContent() {
                 ref={event1Ref}
                 className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
               >
-                <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
-                  <a 
-                    href="https://forms.gle/aCumqCVxbKHowRan9" 
+                <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold text-center">
+                  <a
+                    href="https://forms.gle/aCumqCVxbKHowRan9"
                     target="_blank"
-                    onClick={() => trackEvent('registration', 'event_registration', 'Software Project Exhibition')}
+                    onClick={() =>
+                      trackEvent(
+                        "registration",
+                        "event_registration",
+                        "Software Project Exhibition"
+                      )
+                    }
                   >
                     Software Project Exhibition
                   </a>
                 </span>
                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
-                           (For undergraduate students)
+                  (For undergraduate students)
                 </span>
                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
-                  <a 
-                    href="https://forms.gle/aCumqCVxbKHowRan9" 
+                  <a
+                    href="https://forms.gle/aCumqCVxbKHowRan9"
                     target="_blank"
-                    onClick={() => trackEvent('registration', 'event_registration', 'Software Project Exhibition')}
+                    onClick={() =>
+                      trackEvent(
+                        "registration",
+                        "event_registration",
+                        "Software Project Exhibition"
+                      )
+                    }
                   >
                     Click here to register
                   </a>
@@ -672,22 +711,34 @@ function AppContent() {
                 className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
-                  <a 
-                    href="https://forms.gle/gMabdzYFQ5a8kvhc9" 
+                  <a
+                    href="https://forms.gle/gMabdzYFQ5a8kvhc9"
                     target="_blank"
-                    onClick={() => trackEvent('registration', 'event_registration', 'NextGen Innovators Expo')}
+                    onClick={() =>
+                      trackEvent(
+                        "registration",
+                        "event_registration",
+                        "NextGen Innovators Expo"
+                      )
+                    }
                   >
                     NextGen Innovators Expo
                   </a>
                 </span>
                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
-                           (For school-level students)
+                  (For school-level students)
                 </span>
                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
-                  <a 
-                    href="https://forms.gle/gMabdzYFQ5a8kvhc9" 
+                  <a
+                    href="https://forms.gle/gMabdzYFQ5a8kvhc9"
                     target="_blank"
-                    onClick={() => trackEvent('registration', 'event_registration', 'NextGen Innovators Expo')}
+                    onClick={() =>
+                      trackEvent(
+                        "registration",
+                        "event_registration",
+                        "NextGen Innovators Expo"
+                      )
+                    }
                   >
                     Click here to register
                   </a>
@@ -698,28 +749,46 @@ function AppContent() {
                 className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
-                  <a 
-                    href="https://forms.gle/d6ey8KP3s54AW2Xz8" 
+                  <a
+                    href="https://forms.gle/d6ey8KP3s54AW2Xz8"
                     target="_blank"
-                    onClick={() => trackEvent('registration', 'event_registration', 'InnoCanvas')}
+                    onClick={() =>
+                      trackEvent(
+                        "registration",
+                        "event_registration",
+                        "InnoCanvas"
+                      )
+                    }
                   >
                     InnoCanvas
                   </a>
                 </span>
                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
-                  <a 
-                    href="https://forms.gle/d6ey8KP3s54AW2Xz8" 
+                  <a
+                    href="https://forms.gle/d6ey8KP3s54AW2Xz8"
                     target="_blank"
-                    onClick={() => trackEvent('registration', 'event_registration', 'InnoCanvas')}
+                    onClick={() =>
+                      trackEvent(
+                        "registration",
+                        "event_registration",
+                        "InnoCanvas"
+                      )
+                    }
                   >
                     Poster Design Competition
                   </a>
                 </span>
                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
-                  <a 
-                    href="https://forms.gle/d6ey8KP3s54AW2Xz8" 
+                  <a
+                    href="https://forms.gle/d6ey8KP3s54AW2Xz8"
                     target="_blank"
-                    onClick={() => trackEvent('registration', 'event_registration', 'InnoCanvas')}
+                    onClick={() =>
+                      trackEvent(
+                        "registration",
+                        "event_registration",
+                        "InnoCanvas"
+                      )
+                    }
                   >
                     Click here to register
                   </a>
@@ -730,19 +799,31 @@ function AppContent() {
                 className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
-                  <a 
-                    href="https://forms.gle/XmWyMnTnLGxT8Tfo7" 
+                  <a
+                    href="https://forms.gle/XmWyMnTnLGxT8Tfo7"
                     target="_blank"
-                    onClick={() => trackEvent('registration', 'event_registration', 'Idea Pitching Competition')}
+                    onClick={() =>
+                      trackEvent(
+                        "registration",
+                        "event_registration",
+                        "Idea Pitching Competition"
+                      )
+                    }
                   >
                     Idea Pitching Competition
                   </a>
                 </span>
                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
-                  <a 
-                    href="https://forms.gle/XmWyMnTnLGxT8Tfo7" 
+                  <a
+                    href="https://forms.gle/XmWyMnTnLGxT8Tfo7"
                     target="_blank"
-                    onClick={() => trackEvent('registration', 'event_registration', 'Idea Pitching Competition')}
+                    onClick={() =>
+                      trackEvent(
+                        "registration",
+                        "event_registration",
+                        "Idea Pitching Competition"
+                      )
+                    }
                   >
                     Click here to register
                   </a>
@@ -752,20 +833,32 @@ function AppContent() {
                 ref={event1Ref}
                 className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
               >
-                <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
-                  <a 
-                    href="https://forms.gle/n2GE1DYC1wk55MCeA" 
+                <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold text-center">
+                  <a
+                    href="https://forms.gle/n2GE1DYC1wk55MCeA"
                     target="_blank"
-                    onClick={() => trackEvent('registration', 'event_registration', 'PUBG Mobile LAN Tournament')}
+                    onClick={() =>
+                      trackEvent(
+                        "registration",
+                        "event_registration",
+                        "PUBG Mobile LAN Tournament"
+                      )
+                    }
                   >
                     PUBG Mobile LAN Tournament
                   </a>
                 </span>
                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
-                  <a 
-                    href="https://forms.gle/n2GE1DYC1wk55MCeA" 
+                  <a
+                    href="https://forms.gle/n2GE1DYC1wk55MCeA"
                     target="_blank"
-                    onClick={() => trackEvent('registration', 'event_registration', 'PUBG Mobile LAN Tournament')}
+                    onClick={() =>
+                      trackEvent(
+                        "registration",
+                        "event_registration",
+                        "PUBG Mobile LAN Tournament"
+                      )
+                    }
                   >
                     Click here to register
                   </a>
@@ -776,45 +869,34 @@ function AppContent() {
                 className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
-                  <a 
-                    href="https://forms.gle/6ViXNYpMsWQJzwUMA" 
+                  <a
+                    href="https://forms.gle/MiBZnFyJfBqqndHc8"
                     target="_blank"
-                    onClick={() => trackEvent('registration', 'event_registration', 'E-football Tournament')}
-                  >
-                    E-football Tournament
-                  </a>
-                </span>
-                <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
-                  <a 
-                    href="https://forms.gle/6ViXNYpMsWQJzwUMA" 
-                    target="_blank"
-                    onClick={() => trackEvent('registration', 'event_registration', 'E-football Tournament')}
-                  >
-                    Click here to register
-                  </a>
-                </span>
-              </div>
-              <div
-                ref={event1Ref}
-                className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
-              >
-                <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
-                  <a 
-                    href="https://forms.gle/MiBZnFyJfBqqndHc8" 
-                    target="_blank"
-                    onClick={() => trackEvent('registration', 'event_registration', 'EchoSphere Unplugged')}
+                    onClick={() =>
+                      trackEvent(
+                        "registration",
+                        "event_registration",
+                        "EchoSphere Unplugged"
+                      )
+                    }
                   >
                     EchoSphere Unplugged
                   </a>
                 </span>
                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
-                    (Musical Event)
+                  (Musical Event)
                 </span>
                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
-                  <a 
-                    href="https://forms.gle/MiBZnFyJfBqqndHc8" 
+                  <a
+                    href="https://forms.gle/MiBZnFyJfBqqndHc8"
                     target="_blank"
-                    onClick={() => trackEvent('registration', 'event_registration', 'EchoSphere Unplugged')}
+                    onClick={() =>
+                      trackEvent(
+                        "registration",
+                        "event_registration",
+                        "EchoSphere Unplugged"
+                      )
+                    }
                   >
                     Click here to register
                   </a>
@@ -825,21 +907,33 @@ function AppContent() {
                 className={`bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-48 border-2 border-lightgreen/30 dark:border-teal/30 lg:${event1Anim}`}
               >
                 <span className="text-xl text-gray-400 dark:text-gray-300 font-semibold">
-                  <a 
-                    href="#" 
+                  <a
+                    href="https://forms.gle/7vXLzHYf5xhuxBES6"
                     target="_blank"
-                    onClick={() => trackEvent('registration', 'event_registration', 'Workshops')}
+                    onClick={() =>
+                      trackEvent(
+                        "registration",
+                        "event_registration",
+                        "Workshops"
+                      )
+                    }
                   >
                     Seminars/Talk Session
                   </a>
                 </span>
                 <span className="text-l text-gray-400 dark:text-gray-300 font-semibold">
-                  <a 
-                    href="#" 
+                  <a
+                    href="https://forms.gle/7vXLzHYf5xhuxBES6"
                     target="_blank"
-                    onClick={() => trackEvent('registration', 'event_registration', 'Workshops')}
+                    onClick={() =>
+                      trackEvent(
+                        "registration",
+                        "event_registration",
+                        "Workshops"
+                      )
+                    }
                   >
-                    Registration Opening Soon
+                    Click here to register
                   </a>
                 </span>
               </div>
@@ -864,7 +958,7 @@ function AppContent() {
                 style={{ minHeight: "600px" }}
               />
               <div className="w-full">
-                {[0, 1, 2, 3, 4, 5, 6, 7].map((step, i) => {
+                {[0, 1, 2, 3, 4, 5, 6].map((step, i) => {
                   const [ref, anim] = timelineEventRefs[i];
                   return (
                     <div className="flex w-full mb-12 relative" key={i}>
@@ -882,7 +976,7 @@ function AppContent() {
                                   : i === 4
                                     ? "Idea Pitching Competition"
                                     : i === 6
-                                      ? "E-FOOTBALL TOURNAMENT"
+                                      ? "NEXTGEN INNOVATORS EXPO"
                                       : ""}
                             </span>
                           </div>
@@ -914,8 +1008,6 @@ function AppContent() {
                                   ? "INNOCANVAS"
                                   : i === 5
                                     ? "ECHOSPHERE UNPLUGGED"
-                                    : i === 7
-                                      ? "NEXTGEN INNOVATORS EXPO"
                                     : ""}
                             </span>
                           </div>
@@ -946,10 +1038,14 @@ function AppContent() {
               {/* Title Sponsor */}
               <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 shadow-xl border-4 border-teal dark:border-teal/80 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-teal/5 to-transparent dark:from-teal/10"></div>
-                <h3 className="text-2xl font-bold text-teal-dark dark:text-teal mb-6 text-center relative">Title Sponsor</h3>
+                <h3 className="text-2xl font-bold text-teal-dark dark:text-teal mb-6 text-center relative">
+                  Title Sponsor
+                </h3>
                 <div className="flex justify-center relative">
                   <div className="w-32 h-32 rounded-full bg-white dark:bg-gray-700 border-4 border-teal dark:border-teal/80 flex items-center justify-center shadow-lg">
-                    <span className="text-gray-400 dark:text-gray-500">Logo</span>
+                    <span className="text-gray-400 dark:text-gray-500">
+                      Logo
+                    </span>
                   </div>
                 </div>
               </div>
@@ -957,11 +1053,18 @@ function AppContent() {
               {/* Gold Sponsors */}
               <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 shadow-xl border-4 border-yellow-400 dark:border-yellow-500/80 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/5 to-transparent dark:from-yellow-500/10"></div>
-                <h3 className="text-2xl font-bold text-yellow-600 dark:text-yellow-400 mb-6 text-center relative">Gold Sponsors</h3>
+                <h3 className="text-2xl font-bold text-yellow-600 dark:text-yellow-400 mb-6 text-center relative">
+                  Gold Sponsors
+                </h3>
                 <div className="flex justify-center gap-8 relative">
                   {[1, 2].map((idx) => (
-                    <div key={idx} className="w-28 h-28 rounded-full bg-white dark:bg-gray-700 border-4 border-yellow-400 dark:border-yellow-500/80 flex items-center justify-center shadow-lg">
-                      <span className="text-gray-400 dark:text-gray-500">Logo</span>
+                    <div
+                      key={idx}
+                      className="w-28 h-28 rounded-full bg-white dark:bg-gray-700 border-4 border-yellow-400 dark:border-yellow-500/80 flex items-center justify-center shadow-lg"
+                    >
+                      <span className="text-gray-400 dark:text-gray-500">
+                        Logo
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -970,11 +1073,18 @@ function AppContent() {
               {/* Silver Sponsors */}
               <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 shadow-xl border-4 border-gray-400 dark:border-gray-500/80 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-gray-400/5 to-transparent dark:from-gray-500/10"></div>
-                <h3 className="text-2xl font-bold text-gray-600 dark:text-gray-400 mb-6 text-center relative">Silver Sponsors</h3>
+                <h3 className="text-2xl font-bold text-gray-600 dark:text-gray-400 mb-6 text-center relative">
+                  Silver Sponsors
+                </h3>
                 <div className="flex justify-center gap-6 flex-wrap relative">
                   {[1, 2, 3, 4].map((idx) => (
-                    <div key={idx} className="w-24 h-24 rounded-full bg-white dark:bg-gray-700 border-4 border-gray-400 dark:border-gray-500/80 flex items-center justify-center shadow-lg">
-                      <span className="text-gray-400 dark:text-gray-500">Logo</span>
+                    <div
+                      key={idx}
+                      className="w-24 h-24 rounded-full bg-white dark:bg-gray-700 border-4 border-gray-400 dark:border-gray-500/80 flex items-center justify-center shadow-lg"
+                    >
+                      <span className="text-gray-400 dark:text-gray-500">
+                        Logo
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -983,11 +1093,18 @@ function AppContent() {
               {/* Bronze Sponsors */}
               <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 shadow-xl border-4 border-amber-600 dark:border-amber-500/80 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-600/5 to-transparent dark:from-amber-500/10"></div>
-                <h3 className="text-2xl font-bold text-amber-700 dark:text-amber-500 mb-6 text-center relative">Bronze Sponsors</h3>
+                <h3 className="text-2xl font-bold text-amber-700 dark:text-amber-500 mb-6 text-center relative">
+                  Bronze Sponsors
+                </h3>
                 <div className="flex justify-center gap-6 flex-wrap relative">
                   {[1, 2, 3, 4].map((idx) => (
-                    <div key={idx} className="w-20 h-20 rounded-full bg-white dark:bg-gray-700 border-4 border-amber-600 dark:border-amber-500/80 flex items-center justify-center shadow-lg">
-                      <span className="text-gray-400 dark:text-gray-500">Logo</span>
+                    <div
+                      key={idx}
+                      className="w-20 h-20 rounded-full bg-white dark:bg-gray-700 border-4 border-amber-600 dark:border-amber-500/80 flex items-center justify-center shadow-lg"
+                    >
+                      <span className="text-gray-400 dark:text-gray-500">
+                        Logo
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -996,10 +1113,14 @@ function AppContent() {
               {/* Internet Sponsors */}
               <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 shadow-xl border-4 border-purple-500 dark:border-purple-400/80 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent dark:from-purple-400/10"></div>
-                <h3 className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-6 text-center relative">Internet Sponsors</h3>
+                <h3 className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-6 text-center relative">
+                  Internet Sponsors
+                </h3>
                 <div className="flex justify-center relative">
                   <div className="w-28 h-28 rounded-full bg-white dark:bg-gray-700 border-4 border-purple-500 dark:border-purple-400/80 flex items-center justify-center shadow-lg">
-                    <span className="text-gray-400 dark:text-gray-500">Logo</span>
+                    <span className="text-gray-400 dark:text-gray-500">
+                      Logo
+                    </span>
                   </div>
                 </div>
               </div>
@@ -1007,11 +1128,18 @@ function AppContent() {
               {/* Food Sponsors */}
               <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 shadow-xl border-4 border-green-500 dark:border-green-400/80 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent dark:from-green-400/10"></div>
-                <h3 className="text-2xl font-bold text-green-600 dark:text-green-400 mb-6 text-center relative">Food Sponsors</h3>
+                <h3 className="text-2xl font-bold text-green-600 dark:text-green-400 mb-6 text-center relative">
+                  Food Sponsors
+                </h3>
                 <div className="flex justify-center gap-6 flex-wrap relative">
                   {[1, 2, 3].map((idx) => (
-                    <div key={idx} className="w-24 h-24 rounded-full bg-white dark:bg-gray-700 border-4 border-green-500 dark:border-green-400/80 flex items-center justify-center shadow-lg">
-                      <span className="text-gray-400 dark:text-gray-500">Logo</span>
+                    <div
+                      key={idx}
+                      className="w-24 h-24 rounded-full bg-white dark:bg-gray-700 border-4 border-green-500 dark:border-green-400/80 flex items-center justify-center shadow-lg"
+                    >
+                      <span className="text-gray-400 dark:text-gray-500">
+                        Logo
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -1020,16 +1148,22 @@ function AppContent() {
               {/* Drink Sponsors */}
               <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 shadow-xl border-4 border-blue-400 dark:border-blue-500/80 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-400/5 to-transparent dark:from-blue-500/10"></div>
-                <h3 className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-6 text-center relative">Drink Sponsors</h3>
+                <h3 className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-6 text-center relative">
+                  Drink Sponsors
+                </h3>
                 <div className="flex justify-center gap-8 relative">
                   {[1, 2].map((idx) => (
-                    <div key={idx} className="w-24 h-24 rounded-full bg-white dark:bg-gray-700 border-4 border-blue-400 dark:border-blue-500/80 flex items-center justify-center shadow-lg">
-                      <span className="text-gray-400 dark:text-gray-500">Logo</span>
+                    <div
+                      key={idx}
+                      className="w-24 h-24 rounded-full bg-white dark:bg-gray-700 border-4 border-blue-400 dark:border-blue-500/80 flex items-center justify-center shadow-lg"
+                    >
+                      <span className="text-gray-400 dark:text-gray-500">
+                        Logo
+                      </span>
                     </div>
                   ))}
                 </div>
               </div>
-
             </div>
           </div>
         </section>
@@ -1049,23 +1183,24 @@ function AppContent() {
                   href="mailto:innosphere.pu@gmail.com "
                   className="text-white hover:text-teal-light transition-colors"
                 >
-                  innosphere.pu@gmail.com 
+                  innosphere.pu@gmail.com
                 </a>
               </p>
               <p className="flex items-center">
                 <div className="flex flex-col space-y-2">
                   <span className="text-white hover:text-teal-light transition-colors">
-                    <a href="tel:+977-9819295913">+977-9819295913</a> (Secretary - Tech Club)
+                    <a href="tel:+977-9819295913">+977-9819295913</a> (Secretary
+                    - Tech Club)
                   </span>
                   <span className="text-white hover:text-teal-light transition-colors">
-                    <a href="tel:+977-9865379393">+977-9865379393</a> (Innosphere Coordinator)
+                    <a href="tel:+977-9865379393">+977-9865379393</a>{" "}
+                    (Innosphere Coordinator)
                   </span>
                 </div>
               </p>
               <p className="flex items-center">
                 <span className="text-white hover:text-teal-light transition-colors">
                   Pokhara University, Pokhara Metropolitan City-30, Kaski
-
                 </span>
               </p>
             </div>
@@ -1073,7 +1208,7 @@ function AppContent() {
           <div>
             <h2 className="text-xl font-bold mb-4 text-white">Quick Links</h2>
             <ul className="space-y-2">
-               <li>
+              <li>
                 <a
                   href="#about"
                   className="text-white hover:text-teal-light transition-colors"
